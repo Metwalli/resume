@@ -1,0 +1,52 @@
+<td-layout-manage-list #list style="position: static;">
+  <md-nav-list list-items>
+    <td-steps>
+      <td-step [active]="true" label="Step 1: Choose Template" sublabel="Select Template for this Version from List">
+        
+      </td-step>
+      <td-step label="Step 2: {{version.personalInfo.title}}" sublabel="">
+        <md-list>
+          
+          <md-divider></md-divider>
+        </md-list>
+      </td-step>
+      <td-step label="Step 3: Currenct Sections" sublabel="List Of Added Sections in current version">
+        <md-list>
+          <div *ngFor="let s of version.sectionList">
+            <md-list-item>
+              <h3 md-line>{{s.title}}</h3>            
+            </md-list-item>
+            <md-divider></md-divider>  
+          </div>        
+        </md-list>
+      </td-step>
+      <td-step label="Step 4: Additional Sections" sublabel="You Can Add New Sections Like Education,Experience, ..">
+        <md-list>
+          <md-list-item>
+            <section-template class="collapsed" (sectionClick)="addSection($event)"></section-template>            
+          </md-list-item>          
+          <md-divider></md-divider>
+        </md-list>
+      </td-step>   
+    </td-steps>
+
+  </md-nav-list>
+  <div toolbar-buttons layout="row" layout-align="start center" flex>
+    <app-translate></app-translate>
+    <md-card-actions layout="row">
+      <a md-button (click)="saveVersion()">{{ 'Save' | translate }}</a>
+    </md-card-actions>   
+  </div>
+  <!--<div toolbar-buttons layout="row" layout-align="start center" flex>
+    <span flex></span>
+    <button md-button class="md-icon-button" (click)="selectLang('en')"><md-icon class="md-24">en</md-icon>En</button>
+    <button md-button class="md-icon-button" (click)="selectLang('ar')"><md-icon class="md-24">ar</md-icon>ع</button>
+    <button md-button class="md-icon-button"><md-icon class="md-24">more_vert</md-icon></button>
+  </div>-->
+  <div [dir]="_translateSevice.getLangDir()">
+    <personal-info></personal-info>
+    <div *ngFor="let s of version.sectionList">
+        <section [section]="s" (removeSectionClick)="removeSection(version.sectionList.indexOf(s),$event)"></section>
+    </div>
+  </div>
+</td-layout-manage-list>

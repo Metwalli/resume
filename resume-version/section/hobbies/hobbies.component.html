@@ -1,0 +1,11 @@
+<md-card-content>
+	<div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+		<div *ngFor="let itm of itemList">			
+			<hobby-item [item]="itm" #hobby></hobby-item>	
+		</div>
+	</div>
+</md-card-content>
+<md-divider></md-divider>
+<md-card-actions layout="row">
+	<a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+</md-card-actions>

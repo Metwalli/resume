@@ -1,0 +1,36 @@
+<td-layout-card-over>
+  <div layout="row" layout-align="start center">
+    <md-icon class="md-icon-svg-lg" svgSrc="../../assets/icons/covalent.svg"></md-icon>
+    <div>
+      <md-card-title>Teradata Covalent UI Platform</md-card-title>
+      <md-card-subtitle>a UI platform built on Angular 2.0 + Material Design</md-card-subtitle>
+    </div>
+  </div>
+  <md-divider></md-divider> 
+  <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+    <div flex-md="50" flex-gt-md="25" layout="column" *ngFor="let v of versionList | async" >      
+        <md-card href (click)="editeVersion(v)" class="md-card-colored" flex>
+          <md-toolbar class="bgc-blue-700 " layout="column" layout-align="center center" layout-padding>
+            <md-icon class="md-icon-font-xl tc-white">library_books</md-icon>
+          </md-toolbar>
+          <md-card-content>
+            <div layout="column" layout-padding>
+              <div class="md-subhead">{{v.name}}</div>
+              <div class="md-caption tc-grey-600"> {{v.language}} </div>
+            </div>
+          </md-card-content>
+          <md-divider></md-divider>
+          <md-card-actions>  
+            <div layout="row" layout-align="space-between right" flex>          
+            <a md-button color="primary" (click)="duplicateVersion(v)">{{ 'Duplicate' | translate }}</a>    
+            <a md-button color="primary" (click)="deleteVersion(v.$key)">{{ 'Delete' | translate }}</a>
+            </div>
+          </md-card-actions>  
+        </md-card>      
+    </div>
+  </div>
+  <md-divider></md-divider>
+  <md-card-actions>
+    <a md-button color="primary" (click)="addVersion()">{{ 'New Version' | translate }}</a>        
+  </md-card-actions>  
+</td-layout-card-over>

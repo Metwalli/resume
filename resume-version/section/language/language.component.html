@@ -1,0 +1,9 @@
+<md-card-content>
+	<div *ngFor="let itm of itemList">
+		<language-item [item]="itm"></language-item>
+	</div>
+</md-card-content>
+<md-divider></md-divider>
+<md-card-actions layout="row">
+	<a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+</md-card-actions>

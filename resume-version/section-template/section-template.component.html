@@ -1,0 +1,10 @@
+<div class="section-template-list">
+  <ul>
+    <a (click)="selectedSection(s)" *ngFor="let s of sectionList">
+        <li>
+          <span class="icon {{s.icon}}"></span>
+          <span class="section-title">{{s.title  | translate }}</span>
+        </li>
+    </a>
+  </ul>
+</div>

@@ -1,0 +1,43 @@
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+	padding-top: 10px;
+}
+ul blockquote{
+	font-size: 14px;
+	font-weight: bold;
+}
+.col-md-12 h3{
+	--border-bottom: 2px solid #31A3DD;
+}
+.dl-horizontal dt{
+	text-align: left;
+	width: 120px;
+}
+.dl-horizontal dd{
+	margin-left: 14px;
+}
+.ng-invalid .ng-dirty {
+ border-color: #FA787E;
+}
+.ng-valid .ng-dirty {
+ border-color: #78FA89;
+}
+.panel {
+	border-radius: 0px;
+}
+.btn{
+	border-radius: 0px;
+}
+.section-list{
+	float: left;
+}
+
+.remove-section{
+	font-size: 24px;
+	display: inline-block;
+}
+.remove-section span:hover{
+	color: red;
+}
+.section-heading{
+	display: flex;
+}

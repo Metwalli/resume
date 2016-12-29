@@ -1,0 +1,15 @@
+<form #sectionFrm = "ngForm" >	
+	<div flex-md="50" flex-gt-md="100" layout="column">	
+		<md-card class="md-card-colored" flex>
+			<md-toolbar class="bgc-blue-700" layout="column" layout-align="center center" layout-padding>
+			<md-icon class="icon {{item.icon}} md-icon-font-xl tc-white"></md-icon>
+			</md-toolbar>
+			<md-card-content>
+				<div layout="column" layout-padding>
+					<md-input flex="100" placeholder="{{ 'Name' | translate }}" [(ngModel)]="item.name" required name="name" #name="ngModel"></md-input>
+					<icon-list class="icon-list" [icon]="item.icon" (onChangeIcon)="onChangeIcon($event)"></icon-list>
+				</div>				
+			</md-card-content>
+		</md-card>	
+	</div>
+</form>

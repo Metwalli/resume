@@ -1,0 +1,16 @@
+<form #sectionFrm = "ngForm">
+  <div layout="row" layout-align="space-between center">
+    <md-input flex="45" style="max-width: 48%;" placeholder="{{ 'Degree' | translate }}" required [(ngModel)]="item.name" name="name" #name="ngModel"></md-input>
+  </div>
+  <div layout="row" layout-align="space-between center">
+    <md-input flex="45" style="max-width: 48%;" [(ngModel)]="item.institute" placeholder="{{ 'Institute' | translate }}" name="institute"></md-input>
+    <md-input flex="45" style="max-width: 48%;" [(ngModel)]="item.country" placeholder="{{ 'Country' | translate }}" name="country"></md-input>
+  </div>
+  <div layout="row" layout-align="space-between center">
+    <md-input type ="date" flex="45" style="max-width: 48%;" placeholder="{{ 'From' | translate }}" [(ngModel)]="item.dateFrom" name="dateFrom"></md-input>
+    <md-input type ="date" flex="45" style="max-width: 48%;" placeholder="{{ 'To' | translate }}" [(ngModel)]="item.dateTo" name="dateTo"></md-input>
+  </div>
+  <div layout="row">
+    <md-textarea flex="100" rows="5" placeholder="{{ 'Description' | translate }}" [(ngModel)]="item.details" name="details" ></md-textarea>
+  </div>  	
+</form>

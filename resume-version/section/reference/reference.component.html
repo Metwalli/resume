@@ -1,0 +1,13 @@
+<md-card-content>
+	<div *ngFor="let itm of itemList">
+		<td-expansion-panel label="{{itm.name}}" expand="true">
+			<div class="md-padding">
+				<reference-item [item]="itm"></reference-item>
+			</div>
+		</td-expansion-panel>
+	</div>
+</md-card-content>
+<md-divider></md-divider>
+<md-card-actions layout="row">
+	<a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+</md-card-actions>

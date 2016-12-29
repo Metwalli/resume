@@ -1,0 +1,6 @@
+<div toolbar-buttons layout="row" layout-align="start center" flex>
+    <div *ngFor="let lang of languageList">
+    <button md-button class="md-icon-button" (click)="selectLang(lang)" ><md-icon class="md-24"></md-icon>{{lang.symbol}}</button>
+    <!--<button md-button class="md-icon-button" ><md-icon class="md-24"></md-icon>ع</button>-->
+    </div>
+</div>

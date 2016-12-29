@@ -1,0 +1,5 @@
+<form layout="row" layout-align="space-between center"> 
+    <icon-list class="icon-list" [category]="'social'" [icon]="item.icon" (onChangeIcon)="onChangeIcon($event)"></icon-list>
+    <md-input placeholder="{{ 'Label' | translate }}" [(ngModel)]="item.label" name="label"></md-input>
+    <md-input placeholder="{{ 'Link' | translate }}" [(ngModel)]="item.link" name="link"></md-input>   
+</form>

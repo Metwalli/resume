@@ -1,0 +1,64 @@
+  <md-card>
+    <md-card-title>		
+			<!--<md-input placeholder="{{ 'Title' | translate }}" [(ngModel)]="personalInfo.title" name="title"></md-input>-->
+      <h2>{{ personalInfo.title | translate }}</h2>
+		</md-card-title>
+    <md-card-subtitle></md-card-subtitle>
+    <md-divider></md-divider>
+    <md-card-content>
+      <div>
+        <form [formGroup]="form">
+          <div layout="row" layout-align="space-between center">
+            <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'First Name' | translate }}" [(ngModel)]="personalInfo.firstName" id="firstName" formControlName="firstName" ></md-input>
+            <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'Last Name' | translate }}" [(ngModel)]="personalInfo.lastName" id="lastName" formControlName="lastName"></md-input>
+            <md-input flex="45" style="max-width: 48%;" placeholder="{{'Full Name' | translate }}" [(ngModel)]="personalInfo.fullName" id="fullName" formControlName="fullName"></md-input>            
+          </div>
+          <div layout="row" layout-align="space-between center">
+            <md-input flex="30" placeholder="{{ 'Gender' | translate }}" [(ngModel)]="personalInfo.gender" id="gender" formControlName="gender"></md-input>
+            <md-input flex="30" placeholder="{{ 'Nationality' | translate }}" [(ngModel)]="personalInfo.nationality" id="nationality" formControlName="nationality"></md-input>
+            <md-input flex="30" placeholder="{{ 'Date of Birth' | translate }}" [(ngModel)]="personalInfo.dob" id="dob" formControlName="dob"></md-input>
+          </div>          
+          <div layout="row" layout-align="space-between center">
+            <md-input flex="30" placeholder="{{ 'Address' | translate }}" [(ngModel)]="personalInfo.address" id="address" formControlName="address"></md-input>
+            <md-input flex="30" placeholder="{{ 'City' | translate }}" [(ngModel)]="personalInfo.city" id="city" formControlName="city"></md-input>
+            <md-input flex="30" placeholder="{{ 'Country' | translate }}" [(ngModel)]="personalInfo.country" id="country" formControlName="country"></md-input>
+          </div>
+          <div layout="row">
+            <md-textarea flex="100" placeholder="{{ 'Profile' | translate }}" [(ngModel)]="personalInfo.profile" id="profile" formControlName="profile"></md-textarea>
+          </div>
+          <div layout="row">
+            <md-card flex="100">
+              <md-card-title>{{ 'Contacts' | translate }}</md-card-title>
+              <md-card-subtitle></md-card-subtitle>
+              <md-divider></md-divider>
+              <md-card-content>
+                 <div layout="row" layout-align="space-between center">
+                  <md-input flex="45" style="max-width: 48%;" placeholder="Mobile" [(ngModel)]="personalInfo.mobile" id="mobile" formControlName="mobile"></md-input>
+                  <md-input flex="45" style="max-width: 48%;" placeholder="Email" [(ngModel)]="personalInfo.email" id="email" formControlName="email"></md-input>
+                </div> 
+                <md-divider></md-divider> 
+                <label>{{ 'Social Contacts' | translate }}</label>
+                <div *ngFor="let itm of personalInfo.accountList">
+                  <div layout="row" layout-align="space-between center">
+                    <contact-account flex="90" [item]="itm"></contact-account>
+                    <button type="button" class="close" aria-label="Close" (click)="removeAccount(personalInfo.accountList.indexOf(itm))"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-divider></md-divider>
+              <md-card-actions layout="row">
+                <a md-button (click)="addAccount()">{{ 'Add Account' | translate }}</a>
+              </md-card-actions>
+              <md-card-actions layout="row">
+                <a md-button (click)="checkValidation()">{{ 'Check Validation' | translate }}</a>
+              </md-card-actions>
+              <md-card-actions layout="row">
+                <a md-button (click)="checkValidation()">{{ 'Check Validation' | translate }}</a>
+              </md-card-actions>
+            </md-card>
+          </div>
+        </form>
+      </div>
+    </md-card-content>
+  </md-card>
+

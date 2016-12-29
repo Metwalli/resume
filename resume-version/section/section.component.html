@@ -1,0 +1,23 @@
+<md-card>
+      <md-card-title>
+        <div class="remove-section pull-right">
+          <span class="icon ion-close-circled" (click)="removeSection()"></span>
+        </div> 
+        <!--<md-input placeholder="{{ 'Title' | translate }}" [(ngModel)]="section.title" name="title"></md-input> -->
+        <h2>{{ section.title | translate }}</h2>
+      </md-card-title>
+      <md-divider></md-divider>      
+        <div [ngSwitch]="section.type">             
+          <language *ngSwitchCase="'language'" [itemList]="section.itemList"></language>       
+          <education *ngSwitchCase="'education'" [itemList]="section.itemList"></education>
+          <experience *ngSwitchCase="'experience'" [itemList]="section.itemList"></experience>
+          <skills *ngSwitchCase="'skills'" [categoryList]="section.itemList"></skills>
+          <certificate *ngSwitchCase="'certificate'" [itemList]="section.itemList"></certificate>
+          <award *ngSwitchCase="'award'" [itemList]="section.itemList"></award>
+          <publication *ngSwitchCase="'publication'" [itemList]="section.itemList"></publication>
+          <reference *ngSwitchCase="'reference'" [itemList]="section.itemList"></reference>
+          <volunteering *ngSwitchCase="'volunteering'" [itemList]="section.itemList"></volunteering>
+          <hobbies *ngSwitchCase="'hobbies'" [itemList]="section.itemList"></hobbies>
+          <other-text *ngSwitchCase="'other-text'" [other]="section.itemList"></other-text>
+        </div>      
+</md-card>

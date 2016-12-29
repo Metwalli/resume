@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+
+    <!--Personal Info-->
+        <div class="col-xs-12">
+            <div class="col-xs-3">                        
+                <img src="images/{{version.personalInfo.image}}" class="img-rounded">
+            </div>
+            <div class="col-xs-9">
+                <div class="col-xs-12">
+                    <h1>{{version.personalInfo.fullName}}</h1>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'Date Of Birth' | translate }}</dt>
+                            <dd>{{version.personalInfo.dob}}</dd>
+                            <dt>{{ 'Nationality ' | translate }}</dt>
+                            <dd>{{version.personalInfo.nationality}}</dd>
+                            <dt>{{ 'Marital Status' | translate }}</dt>
+                            <dd>{{version.personalInfo.maritalStatus}}</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-6">
+                        <dl class="dl-horizontal">
+                            <dt>{{ 'Address' | translate }}</dt>
+                            <dd>{{version.personalInfo.address}}</dd>
+                            <dt>{{ 'Mobile No' | translate }}</dt>
+                            <dd>{{version.personalInfo.mobile}}</dd>
+                            <dt>{{ 'Email' | translate }}</dt>
+                            <dd>{{version.personalInfo.email}}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <h3>
+                    <span class="icon {{version.personalInfo.icon}}"></span>
+                    {{ 'Profile' | translate }}
+                </h3>
+            </div>
+            <div class="col-xs-12">
+                <p>{{version.personalInfo.profile}}</p>
+            </div>
+        </div>
+    
+    <!--Other Section-->
+        <div *ngFor="let s of version.sectionList">                    
+            <template-1-section [section]="s"></template-1-section>                        
+        </div>                               
+    </div>
+</div>

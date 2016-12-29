@@ -1,0 +1,13 @@
+<form #sectionFrm = "ngForm" >
+		<div layout="row" layout-align="space-between center">
+			<md-input flex="45" style="max-width: 48%;" placeholder="{{ 'Name' | translate }}" [(ngModel)]="item.name" required name="name" #name="ngModel"></md-input>
+      <md-input flex="45" style="max-width: 48%;" placeholer="{{ 'Company' | translate }}" [(ngModel)]="item.company" name="company"></md-input>
+		</div>
+		<div layout="row" layout-align="space-between center">
+			<md-input flex="45" style="max-width: 48%;" type="email" placeholer="{{ 'Email' | translate }}" [(ngModel)]="item.email" name="email"></md-input>
+      <md-input flex="45" style="max-width: 48%;" placeholder="{{ 'Mobile' | translate }}" [(ngModel)]="item.mobile" name="mobile"></md-input>
+		</div>			
+    <div layout="row" layout-align="space-between center">		
+			<md-textarea flex="100" placeholder="{{ 'Other' | translate }}" [(ngModel)]="item.details" name="details"></md-textarea>
+		</div>
+</form>

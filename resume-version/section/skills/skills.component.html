@@ -1,0 +1,12 @@
+<md-card-content>
+  <div layout="row" layout-wrap hide-xs hide-sm>
+    <div *ngFor="let categ of categoryList">
+        <button type="button" class="close" aria-label="Close" (click)="removeCategory(categoryList.indexOf(itm))"><span aria-hidden="true">&times;</span></button>
+        <skill-category [category]="categ"></skill-category>
+    </div>
+  </div>
+</md-card-content>
+<md-divider></md-divider>
+<md-card-actions layout="row">
+	<a md-button (click)="addNewCategory()">{{ 'Add Category' | translate }}</a>
+</md-card-actions>

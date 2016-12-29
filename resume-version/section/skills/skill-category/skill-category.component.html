@@ -1,0 +1,21 @@
+<form #sectionFrm = "ngForm" >	
+	<div flex-md="50" flex-gt-md="100" layout="column">	
+		<md-card class="md-category-card md-card-colored" flex>
+			<md-toolbar class="bgc-blue-700" layout="column" layout-align="center center" layout-padding>
+			  <md-input flex="100" placeholder="{{ 'Category Name' | translate }}" [(ngModel)]="category.name" required name="name" #name="ngModel"></md-input>
+			</md-toolbar>
+			<md-card-content>
+				<div layout="column" layout-padding *ngFor="let itm of category.itemList">
+					<div layout="row" layout-align="space-between center">						
+						<skill-item [item]="itm"></skill-item>
+						<button type="button" class="close" aria-label="Close" (click)="removeItem(category.itemList.indexOf(itm))"><span aria-hidden="true">&times;</span></button>
+					</div>
+				</div>				
+			</md-card-content>
+      <md-divider></md-divider>
+      <md-card-actions layout="row">
+        <a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+      </md-card-actions>
+		</md-card>	
+	</div>
+</form>

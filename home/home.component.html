@@ -1,0 +1,78 @@
+<td-layout-card-over>
+  <div layout="row" layout-align="start center">
+    <md-icon class="md-icon-svg-lg" svgSrc="../../assets/icons/covalent.svg"></md-icon>
+    <div>
+      <md-card-title>Teradata Covalent UI Platform</md-card-title>
+      <md-card-subtitle>a UI platform built on Angular 2.0 + Material Design</md-card-subtitle>
+    </div>
+  </div>
+  <md-divider></md-divider>
+  <!--<md-nav-list hide-gt-sm>
+    <template let-item let-last="last" ngFor [ngForOf]="items">
+      <a md-list-item [routerLink]="[item.route]">
+        <md-icon md-list-avatar>{{item.icon}}</md-icon>
+        <h3 md-line> {{item.title}} </h3>
+        <p md-line> {{item.description}} </p>
+      </a>
+      <md-divider *ngIf="!last" md-inset></md-divider>
+    </template>
+  </md-nav-list>-->
+  <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+    <template let-item let-last="last" ngFor [ngForOf]="items">
+      <div flex-md="50" flex-gt-md="25" layout="column">
+        <md-card href [routerLink]="[item.route]" class="md-card-colored" flex>
+          <md-toolbar class="bgc-{{item.color}} " layout="column" layout-align="center center" layout-padding>
+            <md-icon class="md-icon-font-xl tc-white">{{item.icon}}</md-icon>
+          </md-toolbar>
+          <md-card-content>
+            <div layout="column" layout-padding>
+              <div class="md-subhead">{{item.title}}</div>
+              <div class="md-caption tc-grey-600"> {{item.description}} </div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </template>
+  </div>
+  <md-divider></md-divider>
+  <md-card-actions>
+    <a href="https://gitter.im/Teradata/covalent" target="_blank" md-button color="primary">Gitter Chat</a>
+    <a href="https://github.com/teradata/covalent/issues" target="_blank" md-button>Bug or Feature Request</a>
+  </md-card-actions>
+  <div after-card>
+    <h3 class="md-title">FAQs</h3>
+    <td-expansion-panel label="What is the Covalent?" sublabel="what is this thing?">
+      <div class="md-padding">
+        Covalent is a UI Platform that combines design language and a web framework, built on Angular 2.0 & Angular-Material (Design).
+        It will give you a quickstart to build a modern web application UI and ensure consistency across Teradata products.
+        Some of the most important features:
+        <ul>
+          <li>Angular-Material 2.0</li>
+          <li>Angular 2.0 Command-line interface (CLI) for builds, deploys, testing & more</li>
+          <li>Drastically simplified interface layouts (for dashboards, lists, etc)</li>
+          <li>Custom web components (stepper, file upload, expansion panels & more)</li>
+          <li>750+ Material Design icons</li>
+          <li>Style Guide with brand standards, color palettes & tips</li>
+          <li>Design Patterns for consistent, reusable web components such as cards, forms, etc</li>
+          <li>Testing Tools for unit tests and end-to-end tests</li>
+          <li>Quickstart app to get started right away!</li>
+        </ul>
+      </div>
+    </td-expansion-panel>
+    <td-expansion-panel label="Why Covalent?" sublabel="what's up with that name?">
+      <div class="md-padding">
+        We follow the Atomic Design principles, applying them to Angular-Material web components. In Atomic Design, several atoms
+        (such as buttons and inputs) form molecules (such as a search box). Our covalent bonds are these molecules we're
+        building on top of Angular-Material. Also, covalent bonds are liquid and conform to their container, just like our
+        responsive layouts!
+      </div>
+    </td-expansion-panel>
+
+    <md-divider></md-divider>
+    <div layout="row" layout-align="start center" layout-padding>
+      <span class="md-caption">Copyright &copy; 2016 Teradata. All rights reserved</span>
+      <span flex></span>
+      <md-icon class="md-icon-ux" svgSrc="../../assets/icons/teradata-ux.svg"></md-icon>
+    </div>
+  </div>
+</td-layout-card-over>

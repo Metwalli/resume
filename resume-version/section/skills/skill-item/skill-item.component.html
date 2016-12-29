@@ -1,0 +1,7 @@
+<form>
+  <div layout="row" layout-align="space-between center">
+    <md-input flex="65" style="max-width: 68%;" placeholder="{{ 'Name' | translate }}" [(ngModel)]="item.name" required name="name" #name="ngModel"></md-input>
+    <md-input type="number" max="100" min="0" flex="25" style="max-width: 28%;" placeholder="{{ 'Level' | translate }}" [(ngModel)]="item.level" name="level"></md-input>
+  </div>
+</form>
+<md-divider></md-divider>
