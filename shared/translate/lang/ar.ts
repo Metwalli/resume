@@ -2,6 +2,7 @@ export const AR_TRANSLATION = {
     "My CV": "سيرتي",
     "Title": "عنوان",
     "Personal Info": "البيانات الشخصية",
+    "personal info": "البيانات الشخصية",
     "First Name": "الاسم اﻷول",
     "Last Name": "الاسم اﻷخير",
     "Full Name": "الاسم الكامل",

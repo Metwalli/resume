@@ -25,6 +25,7 @@ const myFirebaseAuthConfig = {
     CommonModule, SharedModule.forRoot({code:"ar",name: "عربي", symbol:"ع",dir:"rtl"}),    
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [AuthService, AuthGuardService, ResumeVersionService, ResumeVersionResolve]
+  providers: [AuthService, AuthGuardService, ResumeVersionService, ResumeVersionResolve],
+  declarations: []
 })
 export class CoreModule { }

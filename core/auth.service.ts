@@ -13,15 +13,13 @@ export class AuthService {
   ) {
     this.af.auth.subscribe(auth => this.user = auth);
   }
+  public signUp(email: string, pwd: string){
+    this.af.auth.createUser({email: email, password: pwd});
+  }
   public login(provider: string) {
     switch(provider){
       case "email":{
-        this.af.auth.login(
-        {
-          email: 'email@example.com',
-          password: 'password',
-        },
-        {
+        this.af.auth.login({
           provider: AuthProviders.Password,
           method: AuthMethods.Password,
         });

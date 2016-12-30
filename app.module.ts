@@ -7,6 +7,7 @@ import { CovalentCoreModule } from '@covalent/core';
 import { SharedModule } from './shared/shared.module';
 import { ResumeVersionModule } from './resume-version/resume-version.module';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app.routing.module';
 
 import { AppComponent } from './app.component';
@@ -36,9 +37,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,    
     //AngularFireModule.initializeApp(firebaseConfig),
     CovalentCoreModule.forRoot(),
-    //SharedModule.forRoot({code: 'ar',name: 'عربي', symbol: 'ع', dir: 'rtl' }),
+    AuthModule,
     CoreModule,
-    ResumeVersionModule,    
+    //ResumeVersionModule,    
     AppRoutingModule
   ],
   providers: [AppRoutingModule],
