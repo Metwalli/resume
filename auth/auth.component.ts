@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2'
 import { AuthService } from '../core/auth.service';
 import { TranslatePipe } from '../shared/translate/translate.pipe';
 

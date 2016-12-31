@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+//import { CoreModule } from '../core/core.module';
 
 import { ResumeVersionRoutingModule } from './resume-version.routing.module';
 import { IconListComponent } from './icon/icon-list.component';

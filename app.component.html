@@ -14,7 +14,6 @@
     <span>سيرتي</span>
     <span flex></span>
     <a md-icon-button md-tooltip="Home" routerLink="/home">Home</a>
-    <a md-icon-button md-tooltip="Share" routerLink="/share">Share</a>
     <a md-icon-button md-tooltip="Dashboard" routerLink="/resume-version">Dashboard</a>
     <a md-icon-button md-tooltip="LogIn" *ngIf="!authService.user" routerLink="/login">Login</a>
     <a md-icon-button md-tooltip="LogOut" *ngIf="authService.user"(click)="authService.logout()">LogOut</a>       

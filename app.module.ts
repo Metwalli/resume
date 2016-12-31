@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-// import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+//import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { CovalentCoreModule } from '@covalent/core';
 import { SharedModule } from './shared/shared.module';
@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app.routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 
 
 // export const firebaseConfig = {
@@ -30,8 +29,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,    
@@ -39,7 +37,7 @@ import { LoginComponent } from './login/login.component';
     CovalentCoreModule.forRoot(),
     AuthModule,
     CoreModule,
-    //ResumeVersionModule,    
+    ResumeVersionModule,    
     AppRoutingModule
   ],
   providers: [AppRoutingModule],

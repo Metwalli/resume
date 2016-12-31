@@ -34,7 +34,7 @@ export class ResumeVersionService{
           });
         });
         return version;
-      //return this.af.database.object(`/userVersions/${this.user.uid}/${key}`);                  
+        //return this.af.database.object(`/userVersions/${this.user.uid}/${key}`);      
       }
   }
   

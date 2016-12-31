@@ -49,7 +49,7 @@ export class AuthService {
       case "github":{
         this.af.auth.login({
           provider: AuthProviders.Github,
-          method: AuthMethods.Popup,
+          method: AuthMethods.Redirect,
         });
         break;
       }

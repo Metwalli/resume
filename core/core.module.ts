@@ -22,7 +22,7 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
   imports: [
-    CommonModule, SharedModule.forRoot({code:"ar",name: "عربي", symbol:"ع",dir:"rtl"}),    
+    SharedModule.forRoot({code:"ar",name: "عربي", symbol:"ع",dir:"rtl"}),    
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [AuthService, AuthGuardService, ResumeVersionService, ResumeVersionResolve],
