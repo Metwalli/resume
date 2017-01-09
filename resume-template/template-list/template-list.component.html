@@ -1,0 +1,16 @@
+<div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
+  <div flex-md="50" flex-gt-md="25" layout="column" *ngFor="let t of templateList" >      
+      <md-card class="md-card-colored" flex>
+        <md-toolbar class="bgc-blue-700 " layout="column" layout-align="center center" layout-padding>
+            <md-icon class="md-icon-font-xl tc-white">library_books</md-icon>
+          </md-toolbar>
+        <md-card-content>
+          <div layout="column" layout-padding>
+            <div class="md-subhead">{{t.tumpnail}}</div>
+          </div>
+        </md-card-content>
+        <md-divider></md-divider>
+        <div class="md-subhead">{{t.title}}</div>
+      </md-card>      
+  </div>
+</div>
