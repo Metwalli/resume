@@ -19,7 +19,8 @@ import { Section } from '../../shared/models/section';
 export /**
  * ResumeVersionListComponent
  */
-class VersionListComponent implements OnInit{    
+class VersionListComponent implements OnInit{   
+    // #TODO: Create outlet to change version basic info {name, language, direction, ..} 
     versionList: FirebaseListObservable<ResumeVersion[]>;
     constructor(        
         private router: Router,        
@@ -58,10 +59,8 @@ class VersionListComponent implements OnInit{
             this.versionList.remove(key);
         }        
     }
-    viewTemplate(key: string){
-        let navigationExtras: NavigationExtras = {
-            queryParams: { 'versionID': key, 'version': this.versionList[key] },
-        };
-        this.router.navigate(['/resume-template'], navigationExtras);
+    viewVersionTemplate(version: ResumeVersion){
+        this._versionService.currentVersion = version;
+        this.router.navigate(['/resume-template']);
     }
 }

@@ -10,7 +10,7 @@ export class ResumeVersion {
     name: string = "";
     language: string = "";
     direction: string = ""; 
-    templateID: string ="";   
+    templateID: string ="1";   
     personalInfo: PersonalInfo = new PersonalInfo();
     //sectionIDs: string[] = [];
     sectionList: Section[] = []; 

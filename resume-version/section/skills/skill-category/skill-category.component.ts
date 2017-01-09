@@ -11,7 +11,10 @@ export class SkillCategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.category.itemList.length == 0 ){
+    if (!this.category.itemList){
+      this.category.itemList = [];
+      this.addNewItem();
+    }else if (this.category.itemList.length == 0){
       this.addNewItem();
     }
   }

@@ -1,15 +1,36 @@
-<md-card>
-  <md-card-title>
-    <h2>Login To Resume</h2>
-  </md-card-title>
-  <md-card-content>
-    <md-card-actions>
-      <a md-button (click)="login('google')">By Google</a>
-      <a md-button (click)="login('facebook')">By Facebook</a>
-      <a md-button (click)="login('twitter')">By Twitter</a>
-      <a md-button (click)="login('github')">By Github</a>
-      <a md-button (click)="login('email')">By Email</a>
-      <a md-button (click)="Login('anonymous')">By Anonymous</a>
-    </md-card-actions>
-  </md-card-content>
-</md-card>
+<div [dir]="translateService.getDir()">
+  <md-card>
+    <md-card-title>
+      <h2>{{ title | translate }}</h2>
+    </md-card-title>
+    <md-card-content>
+      <form [formGroup]="loginForm" (submit)="loginByEmail()" novalidate>
+        <div layout="col" layout-align="center">
+          <md-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+            placeholder="Email address"
+            [class.invalid]="!loginForm.controls.email.valid &&(emailChanged || submitAttempt)">
+          </md-input>
+          <md-input #password formControlName="password" type="password"
+              (change)="elementChanged(password)"
+              placeholder="Your password"
+              [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+          </md-input>
+        </div>    
+        <a md-button type="submit">{{ 'Login' | translate }}</a>
+      </form>
+      <div layout="row" layout-align="center">
+        <a md-button  (click)="resetPassword()">{{ 'I forgot my password' | translate }}</a>
+        <a md-button (click)="createAccount()">{{ 'Create a new account' | translate }}</a>
+      </div>
+      <md-card-actions>
+        <div layout="col">
+          <a md-button (click)="login('google')">By Google</a>
+          <a md-button (click)="login('facebook')">By Facebook</a>
+          <a md-button (click)="login('twitter')">By Twitter</a>
+          <a md-button (click)="login('github')">By Github</a>
+          <a md-button (click)="Login('anonymous')">By Anonymous</a>
+        </div>
+      </md-card-actions>
+    </md-card-content>
+  </md-card>
+</div>

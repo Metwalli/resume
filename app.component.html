@@ -1,21 +1,11 @@
-
-<!--<div class="container-fluid">
-    <nav>
-        <a *ngIf="!user">Login</a>
-        <a *ngIf="user">LogOut</a>
-        <a routerLink="/resume-version">DashBoard</a>
-    </nav>
-    <router-outlet></router-outlet>
-</div>-->
-
 <td-layout #layout sidenavTitle="Covalent" logo="../assets/icons/teradata.svg" displayName="">
   <td-layout-nav logo="../../assets/icons/teradata.svg">
   <div toolbar-content layout="row" layout-align="center center" flex>
     <span>سيرتي</span>
     <span flex></span>
     <a md-icon-button md-tooltip="Home" routerLink="/home">Home</a>
-    <a md-icon-button md-tooltip="Dashboard" routerLink="/resume-version">Dashboard</a>
-    <a md-icon-button md-tooltip="LogIn" *ngIf="!authService.user" routerLink="/login">Login</a>
+    <a md-icon-button md-tooltip="Dashboard" *ngIf="authService.user" routerLink="/resume-version">Dashboard</a>
+    <a md-icon-button md-tooltip="LogIn" *ngIf="!authService.user" routerLink="/auth">Login</a>
     <a md-icon-button md-tooltip="LogOut" *ngIf="authService.user"(click)="authService.logout()">LogOut</a>       
   </div>
   <router-outlet></router-outlet>

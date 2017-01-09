@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
         { path: '', redirectTo: 'home', pathMatch: 'full'},
         { path: 'home', component: HomeComponent },
         {
-          path: 'login',
+          path: 'auth',
           loadChildren: 'app/auth/auth.module#AuthModule'
         },
+        
         {
-          path: 'resume-version',
-          loadChildren: 'app/resume-version/resume-version.module#ResumeVersionModule'
-        }
+          path: 'resume-template',
+          loadChildren: 'app/resume-template/resume-template.module#ResumeTemplateModule'
+        },
+        
     ])
   ],
   exports: [

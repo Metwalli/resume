@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 
 import { CovalentCoreModule } from '@covalent/core';
 import { TranslateComponent } from './translate/translate.component';
-import { TranslateService, TranslateServiceConfig } from './translate/translate.service';
+import { TranslateService, TranslateLanguage } from './translate/translate.service';
 import { TranslatePipe } from './translate/translate.pipe';
 import { TRANSLATION_PROVIDERS } from './translate/translations';
 import { DirPipe } from './translate/dir.pipe';
@@ -24,12 +24,12 @@ import { SharedComponent } from './shared.component';
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule {
-  static forRoot(lang: TranslateServiceConfig): ModuleWithProviders {
+  static forRoot(lang: TranslateLanguage): ModuleWithProviders {
   return {
     ngModule: SharedModule,
     providers: [
       TRANSLATION_PROVIDERS, TranslateService, 
-      {provide: TranslateServiceConfig, useValue: lang}
+      {provide: TranslateLanguage, useValue: lang}
     ]
   };
 }

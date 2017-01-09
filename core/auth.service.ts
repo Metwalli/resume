@@ -13,18 +13,14 @@ export class AuthService {
   ) {
     this.af.auth.subscribe(auth => this.user = auth);
   }
-  public signUp(email: string, pwd: string){
+  public signUp(email: string, pwd: string): any{
     this.af.auth.createUser({email: email, password: pwd});
+  }
+  public loginByEmail(email: string, pwd: string): any{
+    this.af.auth.login({email: email, password: pwd});
   }
   public login(provider: string) {
     switch(provider){
-      case "email":{
-        this.af.auth.login({
-          provider: AuthProviders.Password,
-          method: AuthMethods.Password,
-        });
-        break;
-      }
       case "google":{
         this.af.auth.login({
           provider: AuthProviders.Google,
@@ -42,7 +38,7 @@ export class AuthService {
       case "twitter":{
         this.af.auth.login({
           provider: AuthProviders.Twitter,
-          method: AuthMethods.Redirect,
+          method: AuthMethods.Popup,
         });
         break;
       }
@@ -66,5 +62,9 @@ export class AuthService {
   public logout() {
     this.af.auth.logout();   
     this.router.navigate(['/home']);
+  }
+
+  resetPassword(email: string): any {
+      return firebase.auth().sendPasswordResetEmail(email);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService, TranslateServiceConfig } from './translate.service';
+import { TranslateService, TranslateLanguage } from './translate.service';
 
 @Component({
   selector: 'app-translate',
@@ -7,7 +7,7 @@ import { TranslateService, TranslateServiceConfig } from './translate.service';
   styleUrls: ['./translate.component.css']
 })
 export class TranslateComponent implements OnInit {  
-  languageList: TranslateServiceConfig[] = [
+  languageList: TranslateLanguage[] = [
     {code: 'ar', name: 'عربي', symbol: 'ع', dir: "rtl"},
     {code: 'en', name: 'English', symbol: 'EN', dir: "ltr"},
   ]  
@@ -16,7 +16,7 @@ export class TranslateComponent implements OnInit {
   ngOnInit() {
     
   }
-  selectLang(lang: TranslateServiceConfig) {    
+  selectLang(lang: TranslateLanguage) {    
     this._translate.use(lang);    
   }
 }

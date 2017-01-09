@@ -1,7 +1,7 @@
 <md-card>
       <md-card-title>
         <div class="remove-section pull-right">
-          <span class="icon ion-close-circled" (click)="removeSection()"></span>
+          <span class="icon ion-close-circled" *ngIf="!required" (click)="removeSection()"></span>
         </div> 
         <!--<md-input placeholder="{{ 'Title' | translate }}" [(ngModel)]="section.title" name="title"></md-input> -->
         <h2>{{ section.title | translate }}</h2>

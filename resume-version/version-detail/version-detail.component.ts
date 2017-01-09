@@ -1,8 +1,6 @@
 import { Component, OnInit, EventEmitter, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
 import { Subscription } from 'rxjs/Subscription';
-// import 'rxjs/add/operator/switchMap';
 import { TranslatePipe } from '../../shared/translate/translate.pipe';
 import { TranslateService } from '../../shared/translate/translate.service';
 import { TranslateComponent } from '../../shared/translate/translate.component';
@@ -21,8 +19,7 @@ import { PersonalInfoComponent } from '../personal-info/personal-info.component'
 export class VersionDetailComponent implements OnInit, AfterViewInit {
     @ViewChild(PersonalInfoComponent)
     personalInfoComponent: PersonalInfoComponent;
-    sectionList: Section[] = [];
-    versionObservable: FirebaseObjectObservable<ResumeVersion>;    
+    sectionList: Section[] = [];    
     version: ResumeVersion = new ResumeVersion();
     constructor(
         private route : ActivatedRoute,
@@ -30,11 +27,13 @@ export class VersionDetailComponent implements OnInit, AfterViewInit {
         private _translateSevice: TranslateService       
     ){  }
     ngAfterViewInit(){
-        this.personalInfoComponent.personalInfo = this.version.personalInfo;
+        
     }
     ngOnInit(){    
         if (this.route.snapshot.params['id'] != "new"){
-            this.version = this._versionService.getVersion(this.route.snapshot.params['id']);
+            //debugger;
+            this._versionService.getVersion(this.route.snapshot.params['id'])
+                .subscribe(version => this.version = version);
             if( !this.version.sectionList){
                 this.version.sectionList = [];
             }

@@ -15,14 +15,18 @@ export /**
  */
 class PersonalInfoComponent implements OnInit {     
     form: FormGroup;
-    personalInfo: PersonalInfo = new PersonalInfo();
+    @Input()personalInfo: PersonalInfo = new PersonalInfo();
     constructor(private fb: FormBuilder){ }    
     ngOnInit(){
         if (!this.personalInfo.accountList){
             this.personalInfo.accountList = [];
         }  
         this.buildForm();  
-    }    
+    }   
+    onChangeName(){      
+      this.personalInfo.fullName = (this.personalInfo.firstName? this.personalInfo.firstName: "") + " " ;
+      this.personalInfo.fullName += this.personalInfo.lastName? this.personalInfo.lastName: ""; 
+    } 
     checkValidation(): boolean{        
         return this.form.valid;        
     }

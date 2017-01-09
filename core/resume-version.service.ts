@@ -10,7 +10,7 @@ import { Section } from '../shared/models/section';
 export class ResumeVersionService{ 
   user: FirebaseAuthState;   
   userID: string;
-  public currentVersion: FirebaseObjectObservable<ResumeVersion>;
+  public currentVersion: ResumeVersion = new ResumeVersion();
   public versionList: FirebaseListObservable<ResumeVersion[]>;
   constructor (
     private af: AngularFire
@@ -25,16 +25,16 @@ export class ResumeVersionService{
     return this.versionList     
   }
   
-  getVersion(key: string){
+  getVersion(key: string): FirebaseObjectObservable<ResumeVersion>{
       if ( this.user ){
-        let version: ResumeVersion = new ResumeVersion();
-        this.versionList.subscribe(vl => {
-          vl.forEach(v => {
-            if( v.$key == key){version = v;}
-          });
-        });
-        return version;
-        //return this.af.database.object(`/userVersions/${this.user.uid}/${key}`);      
+        // let version: ResumeVersion = new ResumeVersion();
+        // this.versionList.subscribe(vl => {
+        //   vl.forEach(v => {
+        //     if( v.$key == key){version = v;}
+        //   });
+        // });
+        // return version;
+        return this.af.database.object(`/userVersions/${this.user.uid}/${key}`);      
       }
   }
   

@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+
 import { ResumeTemplateComponent } from './resume-template.component';
 import { Template1Component } from './template-1/template-1.component';
 import { Template1SectionComponent } from './template-1/template-1-section/template-1-section.component';
+import { ResumeTemplateRoutingModule } from './resume-template.routing.module';
+import { TemplateListComponent } from './template-list/template-list.component';
+import { MainTemplateComponent } from './main-template/main-template.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    ResumeTemplateRoutingModule
   ],
-  declarations: [ResumeTemplateComponent, Template1Component, Template1SectionComponent]
+  declarations: [ResumeTemplateComponent, Template1Component, Template1SectionComponent, TemplateListComponent, MainTemplateComponent],
+  exports: [ResumeTemplateComponent, MainTemplateComponent]
 })
 export class ResumeTemplateModule { }

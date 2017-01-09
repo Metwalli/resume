@@ -33,6 +33,7 @@ import { SkillCategoryComponent } from './section/skills/skill-category/skill-ca
 import { SkillItemComponent } from './section/skills/skill-item/skill-item.component';
 import { ContactAccountComponent } from './personal-info/contact-account/contact-account.component';
 import { SectionTemplateComponent } from './section-template/section-template.component';
+import { StandardVersionComponent } from './standard-version/standard-version.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { SectionTemplateComponent } from './section-template/section-template.co
     SkillCategoryComponent,
     SkillItemComponent,
     ContactAccountComponent,
-    SectionTemplateComponent        
+    SectionTemplateComponent,
+    StandardVersionComponent        
   ],
   providers: [ ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

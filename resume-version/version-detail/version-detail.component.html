@@ -43,8 +43,8 @@
     <button md-button class="md-icon-button" (click)="selectLang('ar')"><md-icon class="md-24">ar</md-icon>ع</button>
     <button md-button class="md-icon-button"><md-icon class="md-24">more_vert</md-icon></button>
   </div>-->
-  <div [dir]="_translateSevice.getLangDir()">
-    <personal-info></personal-info>
+  <div [dir]="_translateSevice.getDir()">
+    <personal-info [personalInfo]= "version.personalInfo"></personal-info>
     <div *ngFor="let s of version.sectionList">
         <section [section]="s" (removeSectionClick)="removeSection(version.sectionList.indexOf(s),$event)"></section>
     </div>

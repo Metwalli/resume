@@ -2,16 +2,23 @@
   <md-card-title>
     <h2>{{'Sign Up' | translate }}</h2>
   </md-card-title>
-  <form [formGroup]="form">
-    <md-card-content>    
+  <md-card-content>
+    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>        
       <div layout="row" layout-align="space-between center">
-        <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'Email' | translate }}" [(ngModel)]="email" id="email" formControlName="email"></md-input>
-        <md-input flex="45" style="max-width: 48%;" placeholder="{{'Password' | translate }}" [(ngModel)]="pwd" id="pwd" formControlName="pwd"></md-input>            
+        <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'Email' | translate }}" 
+          #email formControlName="email" type="email" (change)="elementChanged(email)"          
+          [class.invalid]="!resetPasswordForm.controls.email.valid && (emailChanged || submitAttempt)">
+        </md-input>
+        <md-input flex="45" style="max-width: 48%;" placeholder="{{'Password' | translate }}" 
+          #password formControlName="password" type="password"
+          (change)="elementChanged(password)"  
+          [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+        </md-input>            
       </div>
       <md-card-actions>
-        <a md-button (click)="signUp()">{{ 'Sign Up' | translate }}</a>
+        <a md-button (click)="signup()">{{ 'Sign Up' | translate }}</a>
         <a md-button (click)="cancel()">{{ 'Cancel' | translate }}</a>
       </md-card-actions>
-    </md-card-content>
-  </form>
+    </form>
+  </md-card-content>
 </md-card>

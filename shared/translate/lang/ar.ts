@@ -52,7 +52,8 @@ export const AR_TRANSLATION = {
     "New Version": "سيرة جديد",
     "Duplicate": "تكرار",
     "Delete": "حذف",
-    "Name": "اﻹسم"
+    "Name": "اﻹسم",
+    "Login": "تسجيل الدخول"
     
 
 }

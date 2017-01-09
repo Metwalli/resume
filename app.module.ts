@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CovalentCoreModule } from '@covalent/core';
 import { SharedModule } from './shared/shared.module';
 import { ResumeVersionModule } from './resume-version/resume-version.module';
+import { ResumeTemplateModule } from './resume-template/resume-template.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app.routing.module';
@@ -37,7 +38,8 @@ import { HomeComponent } from './home/home.component';
     CovalentCoreModule.forRoot(),
     AuthModule,
     CoreModule,
-    ResumeVersionModule,    
+    ResumeVersionModule,
+    ResumeTemplateModule,    
     AppRoutingModule
   ],
   providers: [AppRoutingModule],

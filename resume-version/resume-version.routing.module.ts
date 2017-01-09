@@ -4,8 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ResumeVersionComponent } from './resume-version.component';
 import { VersionDetailComponent} from './version-detail/version-detail.component';
 import { VersionListComponent} from './version-list/version-list.component';
+import { StandardVersionComponent} from './standard-version/standard-version.component';
 import { ResumeVersionResolve } from '../core/resume-version-resolve.service';
 import { AuthGuardService } from '../core/auth-guard.service';
+
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -23,6 +25,11 @@ import { AuthGuardService } from '../core/auth-guard.service';
               ]
             }
           ]          
+        },
+        {
+          path: 'new',
+          component: StandardVersionComponent,
+          
         }                                       
     ])
   ],

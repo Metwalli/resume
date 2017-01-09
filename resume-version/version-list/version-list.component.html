@@ -9,7 +9,7 @@
   <md-divider></md-divider> 
   <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
     <div flex-md="50" flex-gt-md="25" layout="column" *ngFor="let v of versionList | async" >      
-        <md-card href (click)="editeVersion(v)" class="md-card-colored" flex>
+        <md-card href class="md-card-colored" flex>
           <md-toolbar class="bgc-blue-700 " layout="column" layout-align="center center" layout-padding>
             <md-icon class="md-icon-font-xl tc-white">library_books</md-icon>
           </md-toolbar>
@@ -22,8 +22,11 @@
           <md-divider></md-divider>
           <md-card-actions>  
             <div layout="row" layout-align="space-between right" flex>          
-            <a md-button color="primary" (click)="duplicateVersion(v)">{{ 'Duplicate' | translate }}</a>    
-            <a md-button color="primary" (click)="deleteVersion(v.$key)">{{ 'Delete' | translate }}</a>
+              <a md-button color="primary" (click)="duplicateVersion(v)">{{ 'Duplicate' | translate }}</a>    
+              <!--<a md-button color="primary" (click)="deleteVersion(v.$key)">{{ 'Delete' | translate }}</a>-->
+              <a md-button color="primary" [routerLink]="[v.$key]">{{ 'Edite' | translate }}</a>
+              <!--<a md-button color="primary" (click)="viewVersionTemplate(v)">{{ 'View' | translate }}</a>-->
+
             </div>
           </md-card-actions>  
         </md-card>      
