@@ -34,7 +34,8 @@ export class AuthComponent implements OnInit {
   }
   ngOnInit(){}
   elementChanged(input){
-    let field = input.inputControl.name;
+    debugger;
+    let field = this.loginForm.input.name;
     this[field + "Changed"] = true;
   }
   login(provider: string){

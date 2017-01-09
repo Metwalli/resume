@@ -4,14 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   imports: [
     RouterModule.forChild([
         { path: 'auth', component: AuthComponent },   
         { path: 'sign-up', component: SignUpComponent },
-        { path: 'login', component: LoginComponent},
         { path: 'reset-password', component: ResetPasswordComponent}                                    
     ])
   ],
