@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-//import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+
 
 import { CovalentCoreModule } from '@covalent/core';
 import { SharedModule } from './shared/shared.module';
