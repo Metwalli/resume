@@ -7,6 +7,8 @@ export const AR_TRANSLATION = {
     "Last Name": "الاسم اﻷخير",
     "Full Name": "الاسم الكامل",
     "Gender": "الجنس",
+    "Male": "ذكر",
+    "Female": "أنثى",
     "Nationality": "الجنسية",
     "Date of Birth": "تأريخ الميلاد",
     "Address": "العنوان",

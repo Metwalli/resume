@@ -19,11 +19,13 @@ import { SectionComponent } from '../section/section.component';
   styleUrls: ['./standard-version.component.css']
 })
 export class StandardVersionComponent implements OnInit, AfterViewInit {
-    @ViewChild(PersonalInfoComponent )
+    @ViewChild(PersonalInfoComponent)
     personalInfoComponent: PersonalInfoComponent;
+    
     sectionList: Section[] = [];    
     version: ResumeVersion = new ResumeVersion();
     stepNo: number = 2;
+    personalInfoValidation: boolean = false;
     constructor(
         private router : Router,
         private _versionService: ResumeVersionService, 
@@ -36,6 +38,9 @@ export class StandardVersionComponent implements OnInit, AfterViewInit {
       this.addSection({"$key": "",  "title": "Education", "icon": "ion-university", "type": "education", "itemList":[]});
       this.addSection({"$key": "",  "title": "Experience", "icon": "ion-briefcase", "type": "experience", "itemList": []});                  
     }  
+    checkValidation(v: boolean){
+      this.personalInfoValidation = v;
+    }
     next(value?: any){
       switch(this.stepNo){
         case 1:{
@@ -44,7 +49,9 @@ export class StandardVersionComponent implements OnInit, AfterViewInit {
           break;
         }
         case 2:{
-          if(this.personalInfoComponent.checkValidation()){
+          //debugger;
+          this.personalInfoComponent.onSubmit();
+          if(this.personalInfoValidation){
             this.stepNo++;          
           }             
           break;

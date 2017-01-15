@@ -7,28 +7,41 @@
     <md-divider></md-divider>
     <md-card-content>
       <div>
-        <form [formGroup]="form" >
+        <form #form="ngForm" class="form-validate" >
           <div layout="row" layout-align="space-between center">
-            <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'First Name' | translate }}" (ngModelChange)=" personalInfo.firstName=$event;onChangeName();" [ngModel]="personalInfo.firstName" id="firstName" formControlName="firstName" required ></md-input>
-            <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'Last Name' | translate }}" (ngModelChange)="personalInfo.lastName=$event; onChangeName();" [ngModel]="personalInfo.lastName" id="lastName" formControlName="lastName" required></md-input>
-            <md-input flex="45" style="max-width: 48%;" placeholder="{{'Full Name' | translate }}" [(ngModel)]="personalInfo.fullName" id="fullName" formControlName="fullName"></md-input>            
+            <div class="input-field col" flex="22" style="max-width: 24%;">
+              <md-input placeholder="{{ 'First Name' | translate }}" (ngModelChange)=" personalInfo.firstName=$event;onChangeName();" [ngModel]="personalInfo.firstName" id="firstName" name="firstName" required ></md-input>
+              <div *ngIf="formErrors.firstName" class="input-field-error" style="display: block;">{{ formErrors.firstName | translate }}</div>
+            </div>
+            <div class="input-field col" flex="22" style="max-width: 24%;">
+              <md-input placeholder="{{ 'Last Name' | translate }}" (ngModelChange)="personalInfo.lastName=$event; onChangeName();" [ngModel]="personalInfo.lastName" id="lastName" name="lastName" required></md-input>
+              <div *ngIf="formErrors.lastName" class="input-field-error" style="display: block;">{{ formErrors.lastName | translate }}</div>
+            </div>                          
+            <md-input placeholder="{{'Full Name' | translate }}" [(ngModel)]="personalInfo.fullName" id="fullName" name="fullName" flex="45" style="max-width: 48%;"></md-input>                                                   
           </div>
           <div layout="row" layout-align="space-between center">
-            <md-input flex="30" placeholder="{{ 'Gender' | translate }}" [(ngModel)]="personalInfo.gender" id="gender" formControlName="gender" required></md-input>
-            <md-input flex="30" placeholder="{{ 'Nationality' | translate }}" [(ngModel)]="personalInfo.nationality" id="nationality" formControlName="nationality"></md-input>
-            <md-input flex="30" placeholder="{{ 'Date of Birth' | translate }}" [(ngModel)]="personalInfo.dob" id="dob" formControlName="dob"></md-input>
+            <div class="input-field col" flex="30" >              
+              <md-input placeholder="{{ 'Gender' | translate }}" [(ngModel)]="personalInfo.gender" id="gender" name="gender" required></md-input>                        
+              <div *ngIf="formErrors.gender" class="input-field-error" style="display: block;">{{ formErrors.gender | translate }}</div>
+            </div>              
+            <md-input flex="30" placeholder="{{ 'Nationality' | translate }}" [(ngModel)]="personalInfo.nationality" id="nationality" name="nationality"></md-input>
+            <md-input flex="30" placeholder="{{ 'Date of Birth' | translate }}" [(ngModel)]="personalInfo.dob" id="dob" name="dob"></md-input>
           </div>          
           <div layout="row" layout-align="space-between center">
-            <md-input flex="30" placeholder="{{ 'Address' | translate }}" [(ngModel)]="personalInfo.address" id="address" formControlName="address"></md-input>
-            <md-input flex="30" placeholder="{{ 'City' | translate }}" [(ngModel)]="personalInfo.city" id="city" formControlName="city"></md-input>
-            <md-input flex="30" placeholder="{{ 'Country' | translate }}" [(ngModel)]="personalInfo.country" id="country" formControlName="country"></md-input>
+            <md-input flex="30" placeholder="{{ 'Address' | translate }}" [(ngModel)]="personalInfo.address" id="address" name="address"></md-input>
+            <md-input flex="30" placeholder="{{ 'City' | translate }}" [(ngModel)]="personalInfo.city" id="city" name="city"></md-input>
+            <md-input flex="30" placeholder="{{ 'Country' | translate }}" [(ngModel)]="personalInfo.country" id="country" name="country"></md-input>
           </div>
           <div layout="row" layout-align="space-between center">
-            <md-input flex="45" style="max-width: 48%;" placeholder="Mobile" [(ngModel)]="personalInfo.mobile" id="mobile" formControlName="mobile"></md-input>
-            <md-input flex="45" style="max-width: 48%;" placeholder="Email" [(ngModel)]="personalInfo.email" id="email" formControlName="email" required></md-input>
+            <md-input flex="45" style="max-width: 48%;" placeholder="Mobile" [(ngModel)]="personalInfo.mobile" id="mobile" name="mobile"></md-input>
+            <div class="input-field col" flex="45" >
+              <md-input placeholder="Email" [(ngModel)]="personalInfo.email" id="email" name="email" required></md-input>
+              <div *ngIf="formErrors.email" class="input-field-error" style="display: block;">{{ formErrors.email | translate }}</div>
+            </div>   
+            
           </div> 
           <div layout="row">
-            <md-textarea flex="100" placeholder="{{ 'Profile' | translate }}" [(ngModel)]="personalInfo.profile" id="profile" formControlName="profile"></md-textarea>
+            <md-textarea flex="100" placeholder="{{ 'Profile' | translate }}" [(ngModel)]="personalInfo.profile" id="profile" name="profile"></md-textarea>
           </div>
           <div layout="row">
             <td-expansion-panel flex="100" label="{{ 'Social Contacts' | translate }}" collapsed="true">

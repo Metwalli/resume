@@ -2,7 +2,7 @@
   <div [dir]="_translateSevice.getDir()" layout="row" layout-wrap hide-xs hide-sm>
     <div [ngSwitch]="stepNo" flex="100">
       <template-list *ngSwitchCase = "1"></template-list>
-      <personal-info *ngSwitchCase = "2" [personalInfo]= "version.personalInfo"></personal-info>
+      <personal-info *ngSwitchCase = "2" [personalInfo]= "version.personalInfo" (checkFormValidation)="checkValidation($event)"></personal-info>
       <section *ngSwitchCase = "3" [section]="version.sectionList[0]" [required]="true"></section>      
       <section *ngSwitchCase = "4" [section]="version.sectionList[1]" [required]="true"></section>
     </div>
