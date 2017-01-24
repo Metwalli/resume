@@ -1,6 +1,6 @@
 <md-card-content>
 	<div *ngFor="let itm of itemList">
-		<td-expansion-panel label="{{itm.name}}" expand="true">
+		<td-expansion-panel label="{{itm.name || 'Certificate' | translate }}"expand="true">
 			<div class="md-padding">
 				<certificate-item [item]="itm"></certificate-item>
 			</div>

@@ -3,7 +3,7 @@
   <div toolbar-content layout="row" layout-align="center center" flex>
     <span>سيرتي</span>
     <span flex></span>
-    <a md-icon-button md-tooltip="Home" routerLink="/home">Home</a>
+    <a md-icon-button md-tooltip="Home" routerLink="/home">Home</a>    
     <a md-icon-button md-tooltip="Dashboard" *ngIf="authService.user" routerLink="/resume-version">Dashboard</a>
     <a md-icon-button md-tooltip="LogIn" *ngIf="!authService.user" routerLink="/auth">Login</a>
     <a md-icon-button md-tooltip="LogOut" *ngIf="authService.user"(click)="authService.logout()">LogOut</a>       

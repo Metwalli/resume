@@ -1,15 +1,19 @@
 <td-layout-card-over>     
   <div [dir]="_translateSevice.getDir()" layout="row" layout-wrap hide-xs hide-sm>
     <div [ngSwitch]="stepNo" flex="100">
-      <template-list *ngSwitchCase = "1"></template-list>
-      <personal-info *ngSwitchCase = "2" [personalInfo]= "version.personalInfo" (checkFormValidation)="checkValidation($event)"></personal-info>
+      <div *ngSwitchCase = "0">
+        <!--Select Language-->
+      </div>
+      <template-list *ngSwitchCase = "1"></template-list> 
+      <personal-info *ngSwitchCase = "2" [personalInfo]= "version.personalInfo"></personal-info>
       <section *ngSwitchCase = "3" [section]="version.sectionList[0]" [required]="true"></section>      
       <section *ngSwitchCase = "4" [section]="version.sectionList[1]" [required]="true"></section>
+      <main-template *ngSwitchCase = "6" [version]="version"></main-template>
     </div>
   </div>
   <md-divider></md-divider>
   <md-card-actions>
-    <a md-button color="primary" *ngIf="stepNo < 5" (click)="next()">{{ 'Next' | translate }}</a>        
+    <a md-button color="primary" (click)="next()">{{ 'Next' | translate }}</a>        
     <a md-button color="primary"  *ngIf="stepNo > 1" (click)="previous()">{{ 'Previous' | translate }}</a>
     <a md-button color="primary" *ngIf="stepNo == 5" (click)="preview()">{{ 'Preview' | translate }}</a>
   </md-card-actions>    

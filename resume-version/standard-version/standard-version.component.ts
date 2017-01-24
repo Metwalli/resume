@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+
 import { TranslatePipe } from '../../shared/translate/translate.pipe';
 import { TranslateService } from '../../shared/translate/translate.service';
 import { TranslateComponent } from '../../shared/translate/translate.component';
@@ -18,25 +18,23 @@ import { SectionComponent } from '../section/section.component';
   templateUrl: './standard-version.component.html',
   styleUrls: ['./standard-version.component.css']
 })
-export class StandardVersionComponent implements OnInit, AfterViewInit {
+export class StandardVersionComponent implements OnInit {
     @ViewChild(PersonalInfoComponent)
     personalInfoComponent: PersonalInfoComponent;
     
     sectionList: Section[] = [];    
     version: ResumeVersion = new ResumeVersion();
-    stepNo: number = 2;
+    stepNo: number = 1;
     personalInfoValidation: boolean = false;
     constructor(
         private router : Router,
         private _versionService: ResumeVersionService, 
         private _translateSevice: TranslateService       
     ){  }
-    ngAfterViewInit(){
-        //this.personalInfoComponent.personalInfo = this.version.personalInfo;
-    }
+    
     ngOnInit(){          
-      this.addSection({"$key": "",  "title": "Education", "icon": "ion-university", "type": "education", "itemList":[]});
-      this.addSection({"$key": "",  "title": "Experience", "icon": "ion-briefcase", "type": "experience", "itemList": []});                  
+      this.addSection({"$key": "", "order": 0, "title": "Education", "icon": "ion-university", "type": "education", "itemList":[]});
+      this.addSection({"$key": "", "order": 0, "title": "Experience", "icon": "ion-briefcase", "type": "experience", "itemList": []});                  
     }  
     checkValidation(v: boolean){
       this.personalInfoValidation = v;
@@ -51,17 +49,21 @@ export class StandardVersionComponent implements OnInit, AfterViewInit {
         case 2:{
           //debugger;
           this.personalInfoComponent.onSubmit();
-          if(this.personalInfoValidation){
+          if(this.personalInfoComponent.checkValidation()){
             this.stepNo++;          
           }             
           break;
         }
-        case 3:{
+        case 3:{// show Education
           this.stepNo++;
           break;
         }
-        case 4:{
+        case 4:{// Show Work Expereince
+          this._versionService.currentVersion = this.version;
           this.stepNo++;
+          break;
+        }
+        case 5:{                                        
           break;
         }
       }   
@@ -70,8 +72,9 @@ export class StandardVersionComponent implements OnInit, AfterViewInit {
       this.stepNo--;
     }
     preview(){
-      this._versionService.currentVersion = this.version;
-      this.router.navigate(['resume-template']);
+      this.stepNo++;
+      // this._versionService.currentVersion = this.version;
+      // this.router.navigate(['resume-template']);
     }
     addSection(s:Section){
         let section = new Section(s.title, s.icon, s.type, []);

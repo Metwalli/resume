@@ -23,8 +23,8 @@ class PersonalInfoComponent implements OnInit, AfterViewChecked {
     ];
     @Input()personalInfo: PersonalInfo = new PersonalInfo();    
     @ViewChild('form') currentForm: NgForm;
-    @Output() checkFormValidation = new EventEmitter<boolean>();
-    constructor(private fb: FormBuilder){ }    
+    //@Output() checkFormValidation = new EventEmitter<boolean>();
+    constructor(){ }    
     ngOnInit(){
         if (!this.personalInfo.accountList){
             this.personalInfo.accountList = [];
@@ -35,7 +35,7 @@ class PersonalInfoComponent implements OnInit, AfterViewChecked {
     
     ngAfterViewChecked() {
       this.formChanged();
-      this.checkFormValidation.emit(this.form.valid);
+      //this.checkFormValidation.emit(this.form.valid);
     } 
     
     onChangeName(){      
