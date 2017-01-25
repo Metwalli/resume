@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
   emailChanged: boolean = false;
   passwordChanged: boolean = false;
   submitAttempt: boolean = false;
-  public loading: any;
+  public loginError: boolean = false;
 
   constructor(public authService: AuthService, public router: Router, 
     public translateService: TranslateService, public formBuilder: FormBuilder) {
@@ -33,31 +33,29 @@ export class AuthComponent implements OnInit {
     }      
   }
   ngOnInit(){}
-  elementChanged(input){
-    debugger;
-    let field = this.loginForm.input.name;
-    this[field + "Changed"] = true;
+  elementChanged(field: any){
+    this[field.name + "Changed"] = true;
   }
   login(provider: string){
     this.authService.login(provider);
   }
   loginByEmail(){
     this.submitAttempt = true;
-
     if (!this.loginForm.valid){
         console.log(this.loginForm.value);
     } else {
-        this.authService.loginByEmail(this.loginForm.value.email, 
-            this.loginForm.value.password).then( auth => {
-                this.router.navigate(['resume-version']);
-            }, error => {
-                this.loading.dismiss().then( () => { console.log("invaled");});
-            });            
+        this.authService.loginByEmail(this.loginForm.value.email, this.loginForm.value.password)
+          .then(auth => {
+              this.router.navigate(['home']);
+            },error => {
+              this.loginError = true;
+            }
+          );
     }
   }
 
   resetPassword(){
-    this.router.navigate(['reset-passowrd']);
+    this.router.navigate(['reset-password']);
   }
 
   createAccount(){

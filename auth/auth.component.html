@@ -5,18 +5,20 @@
     </md-card-title>
     <md-card-content>
       <form [formGroup]="loginForm" (submit)="loginByEmail()" novalidate>
+        <div *ngIf="submitAttempt && loginError" layout="row" layout-align="center">
+          <p>{{ 'The User Or Password is Invalid' | translate }}</p>
+        </div>
         <div layout="col" layout-align="center">
-          <md-input #email formControlName="email" type="email" (change)="elementChanged(email)"
-            placeholder="Email address"
+          <md-input #email name='email' placeholder="Email address"
+            formControlName="email" type="email" (change)="elementChanged(email)"            
             [class.invalid]="!loginForm.controls.email.valid &&(emailChanged || submitAttempt)">
           </md-input>
-          <md-input #password formControlName="password" type="password"
-              (change)="elementChanged(password)"
-              placeholder="Your password"
-              [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+          <md-input #password name='password' placeholder="Your password"
+            formControlName="password" type="password" (change)="elementChanged(password)"              
+            [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
           </md-input>
         </div>    
-        <a md-button type="submit">{{ 'Login' | translate }}</a>
+        <button md-button type="submit">{{ 'Login' | translate }}</button>
       </form>
       <div layout="row" layout-align="center">
         <a md-button  (click)="resetPassword()">{{ 'I forgot my password' | translate }}</a>

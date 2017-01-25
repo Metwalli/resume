@@ -11,8 +11,8 @@ export class ResumeVersion {
     language: string = "";
     direction: string = ""; 
     templateID: string ="1";   
-    personalInfo: PersonalInfo = new PersonalInfo();
-    //sectionIDs: string[] = [];
-    sectionList: Section[] = []; 
-    //userID: string;
+    personalInfo: PersonalInfo = new PersonalInfo();    
+    sectionList: Section[] = [];     
+    // createDate: Date;
+    // updateDate: Date;
 }

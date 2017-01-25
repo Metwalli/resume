@@ -11,13 +11,14 @@
         </md-list>
       </td-step>
       <td-step label="Step 3: Currenct Sections" sublabel="List Of Added Sections in current version">
-        <md-list>
-          <div *ngFor="let s of version.sectionList">
-            <md-list-item>
-              <h3 md-line>{{s.title}}</h3>            
+        <md-list>        
+            <md-list-item *ngFor="let s of version.sectionList" [makeDraggable]="s" (dropped)="onDrop($event, s)">
+              <div>
+                <h3 md-line>{{s.title}}</h3>  
+                <md-divider></md-divider>  
+              </div>         
             </md-list-item>
-            <md-divider></md-divider>  
-          </div>        
+                              
         </md-list>
       </td-step>
       <td-step label="Step 4: Additional Sections" sublabel="You Can Add New Sections Like Education,Experience, ..">

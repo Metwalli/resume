@@ -1,8 +1,8 @@
-<div dir="version.direction" class="row">
+<div layout="row">
     <div [ngSwitch]="version.templateID">
-        <template-1 *ngSwitchCase="1" [version]="version"></template-1>
+        <template-1 *ngSwitchCase = "1" [version]="version"></template-1>
         <!--<template-2 *ngSwitchCase="2" [resume]="resume"></template-2>
         <template-3 *ngSwitchCase="3" [resume]="resume"></template-3>-->
-        <template-1 *ngSwitchDefault [version]="version"></template-1>
+        <template-1 *ngSwitchDefault [version]="version" flex="100"></template-1>
     </div>
 </div>     

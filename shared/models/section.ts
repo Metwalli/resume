@@ -8,9 +8,10 @@ class Section {
     this.type = type;
     this.itemList = items;    
   }
-  $key: string;
+  $key: string;  
+  order: number;
 	title: string;
 	icon: string;
 	type: string;
-	itemList: any;
+	itemList: any;  
 }

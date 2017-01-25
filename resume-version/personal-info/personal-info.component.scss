@@ -1,0 +1,20 @@
+// .ng-valid[required] {
+//       border-bottom: 1px solid #42A948; /* green */
+//       box-shadow: 0 1px 0 0 #00E676;
+//     }
+
+//     .ng-invalid {
+//       border-bottom: 1px solid #a94442; /* red */
+//       box-shadow: 0 1px 0 0 #a94442;
+//     }
+.input-field-error {
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 12sp;
+    color: #FF4081;    
+    // -webkit-transform: translateY(0%);
+    // -ms-transform: translateY(0%);
+    // -o-transform: translateY(0%);
+    // transform: translateY(0%);
+}

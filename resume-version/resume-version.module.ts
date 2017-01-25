@@ -1,5 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+import { ResumeTemplateModule } from '../resume-template/resume-template.module';
+
 //import { CoreModule } from '../core/core.module';
 
 import { ResumeVersionRoutingModule } from './resume-version.routing.module';
@@ -39,7 +41,8 @@ import { StandardVersionComponent } from './standard-version/standard-version.co
 @NgModule({
   imports: [    
     ResumeVersionRoutingModule,    
-    SharedModule       
+    SharedModule,
+    ResumeTemplateModule       
   ],
   declarations: [
     IconListComponent, SectionTemplateComponent,ResumeVersionComponent,

@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
         {
           path: 'resume-template',
           loadChildren: 'app/resume-template/resume-template.module#ResumeTemplateModule'
-        },
+        }
         
     ])
   ],

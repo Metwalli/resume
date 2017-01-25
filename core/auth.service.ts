@@ -14,10 +14,18 @@ export class AuthService {
     this.af.auth.subscribe(auth => this.user = auth);
   }
   public signUp(email: string, pwd: string): any{
-    this.af.auth.createUser({email: email, password: pwd});
+    return this.af.auth.createUser({email: email, password: pwd});
   }
   public loginByEmail(email: string, pwd: string): any{
-    this.af.auth.login({email: email, password: pwd});
+    return this.af.auth.login(
+      {
+        email: email, 
+        password: pwd
+      },
+      {
+        provider: AuthProviders.Password,
+        method: AuthMethods.Password,
+      });
   }
   public login(provider: string) {
     switch(provider){
@@ -31,14 +39,14 @@ export class AuthService {
       case "facebook":{
         this.af.auth.login({
           provider: AuthProviders.Facebook,
-          method: AuthMethods.Popup,
+          method: AuthMethods.Redirect,
         });
         break;
       } 
       case "twitter":{
         this.af.auth.login({
           provider: AuthProviders.Twitter,
-          method: AuthMethods.Popup,
+          method: AuthMethods.Redirect,
         });
         break;
       }
