@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResumeVersion } from '../../shared/models/resume-version';
 import { TranslatePipe } from '../../shared/translate/translate.pipe';
@@ -7,17 +7,17 @@ import { TranslateComponent } from '../../shared/translate/translate.component';
 import {ResumeVersionService} from '../../core/resume-version.service';
 
 @Component({
-  selector: 'app-main-template',
+  selector: 'main-template',
   templateUrl: './main-template.component.html',
   styleUrls: ['./main-template.component.css']
 })
 export class MainTemplateComponent implements OnInit {
 
-  version: ResumeVersion = new ResumeVersion();
+  @Input() version: ResumeVersion = new ResumeVersion();
   constructor(private _versionService: ResumeVersionService) {  }
       
   ngOnInit() {
-    this.version = this._versionService.currentVersion;    
+    //this.version = this._versionService.currentVersion;    
   }
 
 }

@@ -1,11 +1,10 @@
-<div class="col-xs-12">
-        <div class="section-header col-xs-12">            
+<div layout="col">
+        <div class="section-header" flex>            
             <h3> 
-                <span class="icon {{section.icon}}"></span>{{section.title}}
+                <span class="icon {{section.icon}}"></span>{{ section.title | translate}}
             </h3>           
         </div>
-        <div [ngSwitch]="section.type" class="col-xs-12">            
-
+        <div [ngSwitch]="section.type" flex>            
                 <div *ngSwitchCase="'language'">
                     <div class="col-xs-12">
                         <div class="col-xs-3" *ngFor="let itm of section.itemList">

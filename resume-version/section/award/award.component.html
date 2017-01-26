@@ -1,7 +1,7 @@
 <md-card-content>
 	<div *ngFor="let itm of itemList">
 		<button type="button" class="close" aria-label="Close" (click)="removeItem(itemList.indexOf(itm))"><span aria-hidden="true">&times;</span></button>
-		<td-expansion-panel label="{{itm.name}}" expand="true">
+		<td-expansion-panel label="{{itm.name || 'Award' | translate }}" expand="true">
 			<div class="md-padding">
 				<award-item [item]="itm"></award-item>
 			</div>

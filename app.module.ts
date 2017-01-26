@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+//import { MaterialModule } from '@angular/material';
 
-
+import {SelectModule } from './select/select.module';
 import { CovalentCoreModule } from '@covalent/core';
 import { SharedModule } from './shared/shared.module';
 import { ResumeVersionModule } from './resume-version/resume-version.module';
@@ -33,14 +34,16 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule, 
+    //MaterialModule.forRoot(),
     //AngularFireModule.initializeApp(firebaseConfig),
     CovalentCoreModule.forRoot(),
     AuthModule,
     CoreModule,
     ResumeVersionModule,
-    ResumeTemplateModule,    
-    AppRoutingModule
+    //ResumeTemplateModule,    
+    AppRoutingModule,
+    //SelectModule
   ],
   providers: [AppRoutingModule],
 

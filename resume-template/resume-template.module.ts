@@ -14,6 +14,6 @@ import { MainTemplateComponent } from './main-template/main-template.component';
     ResumeTemplateRoutingModule
   ],
   declarations: [ResumeTemplateComponent, Template1Component, Template1SectionComponent, TemplateListComponent, MainTemplateComponent],
-  exports: [ResumeTemplateComponent, MainTemplateComponent]
+  exports: [ResumeTemplateComponent, TemplateListComponent, MainTemplateComponent]
 })
 export class ResumeTemplateModule { }

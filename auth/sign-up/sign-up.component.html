@@ -1,24 +1,25 @@
+<div [dir]="translateService.getDir()">
 <md-card>
   <md-card-title>
-    <h2>{{'Sign Up' | translate }}</h2>
+    <h2>{{title | translate }}</h2>
   </md-card-title>
   <md-card-content>
-    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>        
+    <form [formGroup]="signupForm" (submit)="signup()" novalidate>        
       <div layout="row" layout-align="space-between center">
-        <md-input flex="22" style="max-width: 24%;" placeholder="{{ 'Email' | translate }}" 
-          #email formControlName="email" type="email" (change)="elementChanged(email)"          
-          [class.invalid]="!resetPasswordForm.controls.email.valid && (emailChanged || submitAttempt)">
+        <md-input #email placeholder="{{ 'Email' | translate }}" name='email'
+          formControlName="email" type="email" (change)="elementChanged(email)"          
+          [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)">
         </md-input>
-        <md-input flex="45" style="max-width: 48%;" placeholder="{{'Password' | translate }}" 
-          #password formControlName="password" type="password"
-          (change)="elementChanged(password)"  
-          [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+        <md-input #password placeholder="{{'Password' | translate }}" name='password'
+          formControlName="password" type="password" (change)="elementChanged(password)"  
+          [class.invalid]="!signupForm.controls.password.valid &&(passwordChanged || submitAttempt)">
         </md-input>            
       </div>
       <md-card-actions>
-        <a md-button (click)="signup()">{{ 'Sign Up' | translate }}</a>
+        <button md-button type="submit">{{ 'Sign Up' | translate }}</button>
         <a md-button (click)="cancel()">{{ 'Cancel' | translate }}</a>
       </md-card-actions>
     </form>
   </md-card-content>
 </md-card>
+</div>
