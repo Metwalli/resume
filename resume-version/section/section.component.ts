@@ -1,24 +1,15 @@
 import {Component, OnInit, Input , Output, EventEmitter} from '@angular/core';
 import {Section} from '../../shared/models/section';
-import {LanguageComponent} from './language/language.component';
-import {LanguageItemComponent} from './language/language-item/language-item.component';
-import {EducationComponent} from './education/education.component';
-import {EducationItemComponent} from './education/education-item/education-item.component';
-import {ExperienceComponent} from './experience/experience.component';
-import {ExperienceItemComponent} from './experience/experience-item/experience-item.component';
-import {AwardComponent} from './award/award.component';
-import {AwardItemComponent} from './award/award-item/award-item.component';
-import {CertificateComponent} from './certificate/certificate.component';
-import {CertificateItemComponent} from './certificate/certificate-item/certificate-item.component';
-import {HobbiesComponent} from './hobbies/hobbies.component';
-import {HobbyItemComponent} from './hobbies/hobby-item/hobby-item.component';
-import {OtherTextComponent} from './other-text/other-text.component';
-import {PublicationComponent} from './publication/publication.component';
-import {PublicationItemComponent} from './publication/publication-item/publication-item.component';
-import {ReferenceComponent} from './reference/reference.component';
-import {ReferenceItemComponent} from './reference/reference-item/reference-item.component';
-import {VolunteeringComponent} from './volunteering/volunteering.component';
-import {VolunteeringItemComponent} from './volunteering/volunteering-item/volunteering-item.component';
+import { Award } from '../../shared/models/award';
+import { Certificate } from '../../shared/models/certificate';
+import { Education } from '../../shared/models/education';
+import { Experience } from '../../shared/models/experience';
+import { Hobby } from '../../shared/models/hobby';
+import { Language } from '../../shared/models/language';
+import { Publication } from '../../shared/models/publication';
+import { Reference } from '../../shared/models/reference';
+import { Skill, SkillCategory } from '../../shared/models/skill';
+import { Volunteering } from '../../shared/models/volunteering';
 
 
 @Component({
@@ -31,19 +22,75 @@ export /**
  * SectionComponent
  */
 class SectionComponent implements OnInit {
-  constructor(){ }
+  
   @Input() section: Section;
   @Input() required: boolean = false;
   @Output() removeSectionClick = new EventEmitter<number>();
-  
+  currentItemIndex: number;
+  constructor(){ }
   ngOnInit(){
     if(!this.section.itemList){
-      this.section.itemList = [];
+      this.section.itemList = [];      
     }
   }
   removeSection(){
     if(confirm("Are You Sure to Remove this Section!")){
       this.removeSectionClick.emit(1);
     }
+  }
+  addItem(){
+    switch(this.section.type){
+      case 'award':{
+        this.section.itemList.push(new Award());
+        break;
+      }
+      case 'certificate':{
+        this.section.itemList.push(new Certificate());
+        break;
+      }
+      case 'education':{
+        this.section.itemList.push(new Education());
+        break;
+      }
+      case 'experience':{
+        this.section.itemList.push(new Experience());
+        break;
+      }
+      case 'hobbies':{
+        this.section.itemList.push(new Hobby());
+        break;
+      }
+      case 'language':{
+        this.section.itemList.push(new Language());
+        break;
+      }
+      case 'publication':{
+        this.section.itemList.push(new Publication());
+        break;
+      }
+      case 'reference':{
+        this.section.itemList.push(new Reference());
+        break;
+      }
+      case 'skills':{
+        this.section.itemList.push(new SkillCategory());
+        break;
+      }
+      case 'skill-category':{
+        this.section.itemList.push(new Skill());
+        break;
+      }
+      case 'volunteering':{
+        this.section.itemList.push(new Volunteering());
+        break;
+      }
+    }
+    this.currentItemIndex = this.section.itemList.length - 1;
+  }
+  removeItem(index: number){
+    this.section.itemList.splice(index,1);    
+  }
+  itemSelected(index: number){    
+    this.currentItemIndex = index;
   }
 }

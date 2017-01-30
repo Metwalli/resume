@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Education } from '../../../shared/models/education';
+import { SectionComponent } from '../section.component';
 
 @Component({
   selector: 'education',  
@@ -7,27 +8,14 @@ import { Education } from '../../../shared/models/education';
   styleUrls: ['./education.component.css']  
 })
 
-export class EducationComponent implements OnInit{    
-  @Input() itemList: Education[];     
-  currentItemIndex: number;   
-  constructor(){  }  
+export class EducationComponent extends SectionComponent{    
+  @Input() section: any;        
+  constructor(){ super(); }  
   ngOnInit(){    
-    //debugger;
-    if(this.itemList.length == 0){
-      this.addNewItem();       
+    if(this.section.itemList.length == 0){
+      this.addItem();       
     }else{
-      this.currentItemIndex = this.itemList.length - 1;
+      this.currentItemIndex = this.section.itemList.length - 1;
     }
-
-  }
-  addNewItem(){    
-    this.itemList.push(new Education());   
-    this.currentItemIndex = this.itemList.length - 1; 
-  } 
-  removeItem(index: number){
-    this.itemList.splice(index,1);    
-  }
-  itemSelected(index: number){    
-    this.currentItemIndex = index;
   }
 }

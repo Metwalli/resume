@@ -1,64 +1,57 @@
-<div layout="col">
+<div layout="column">
         <div class="section-header" flex>            
             <h3> 
-                <span class="icon {{section.icon}}"></span>{{ section.title | translate}}
+                <span layout-padding class="icon {{section.icon}}"></span>{{ section.title | translate}}
             </h3>           
         </div>
-        <div [ngSwitch]="section.type" flex>            
-                <div *ngSwitchCase="'language'">
-                    <div class="col-xs-12">
-                        <div class="col-xs-3" *ngFor="let itm of section.itemList">
-                            <span class="icon">{{itm.level}}</span>
-                            <h4>{{itm.name}}</h4>
-                        </div>
-                    </div>
+        <div [ngSwitch]="section.type" layout="column" flex>            
+                <div *ngSwitchCase="'language'" layout="column">                    
+                    <div layout="row" flex="33" *ngFor="let itm of section.itemList">
+                        <span class="icon">{{itm.level}}</span>
+                        <h4>{{itm.name}}</h4>
+                    </div>                
                 </div>
 
-                <div *ngSwitchCase="'education'">  
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'education'" flex="100" layout="column">  
+                    <div layout-padding layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4> {{itm.institute}},{{itm.country}}</h4>		
                         </div>
-                        <div class="col-xs-6">
+                        <div layout="column" flex=50>
                             <label>{{itm.name}}</label>
                             <p>{{itm.details}}</p>
                         </div>
-                        <div class="col-xs-3">
+                        <div flex=25>
                             <label> {{itm.dateFrom}}-{{itm.dateTo}} </label>
                         </div>
                     </div>
                 </div>		     
                                 
-                <div *ngSwitchCase="'experience'">
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'experience'" flex="100" layout="column">
+                    <div layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4>{{itm.company}},{{itm.country}}{{itm.city}}</h4>		
                         </div>
-                        <div class="col-xs-6">
-                            <div class="col-xs-12">
-                                <label>{{itm.name}}</label>
-                            </div>
-                            <div class="col-xs-12">
-                                <p>{{itm.details}}</p>
-                            </div>
+                        <div layout="column" flex="50">
+                            <label>{{itm.name}}</label>
+                            <p>{{itm.details}}</p>                            
                         </div>
-                        <div class="col-xs-3">
+                        <div flex="25">
                             <label>{{itm.dateFrom}}-{{itm.dateTo}}</label>
                         </div>
                     </div>		
                 </div>
-                <div *ngSwitchCase="'skills'"> 
-                    <div class="col-xs-12">
-                        <div class="col-xs-6" *ngFor="let c of section.itemList">
-                            <div class="col-xs-4">
+                <div *ngSwitchCase="'skills'" layout="row">                     
+                        <div flex="50" *ngFor="let c of section.itemList">
+                            <div flex="33">
                                 <h4>{{c.name}}</h4>
                             </div>
-                            <div class="col-xs-8">
-                                <div class="col-xs-12" *ngFor="let itm of c.itemList">                                
-                                    <div class="col-xs-4">
-                                    <label> {{itm.name}}</label>
+                            <div layout="column" flex="66">
+                                <div layout="row" *ngFor="let itm of c.itemList">                                
+                                    <div flex="33">
+                                        <label> {{itm.name}}</label>
                                     </div>
-                                    <div class="col-xs-8">
+                                    <div flex="66">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="4*10" 
                                                 aria-valuemin="0" aria-valuemax="100" [style.width]="itm.level*10">
@@ -68,95 +61,90 @@
                                     </div>          
                                 </div>            
                             </div>
-                        </div>    
-                    </div>
+                        </div>                        
                 </div>
-                <div *ngSwitchCase="'certificate'">
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'certificate'" flex="100" layout="column">
+                    <div layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4>{{itm.name}},{{itm.authority}}</h4>		
                         </div>
-                        <div class="col-xs-6">
+                        <div layout="column" flex="50">
                             <label>{{itm.url}}</label>
                             <p>{{itm.details}}</p>
                         </div>
-                        <div class="col-xs-3">
+                        <div flex="25">
                             <label>{{itm.issuDate}}</label>
                         </div>
                     </div>		
                 </div>
-                <div *ngSwitchCase="'award'">
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'award'" flex="100" layout="column">
+                    <div layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4>{{itm.title}},{{itm.presentedBy}}</h4>		
                         </div>
-                        <div class="col-xs-6">
+                        <div layout="column" flex="50">
                             <label>{{itm.url}}</label>
                             <p>{{itm.details}}</p>
                         </div>
-                        <div class="col-xs-3">
+                        <div flex="25">
                             <label>{{itm.date}}</label>
                         </div>
                     </div>		
                 </div>
-                <div *ngSwitchCase="'publication'">
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'publication'" flex="100" layout="column">
+                    <div layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4>{{itm.name}},{{itm.publisher}}</h4>		
                         </div>
-                        <div class="col-xs-6">                
+                        <div flex="50">                
                             <p>{{itm.details}}</p>          
                         </div>
-                        <div class="col-xs-3">
+                        <div layout="column" flex="25">
                             <label> {{itm.date}}</label>
                             <a href="{{itm.url}}">{{itm.url}}</a>
                         </div>
                     </div>		
                 </div>
-                <div *ngSwitchCase="'reference'">
-                    <div class="col-xs-12">
-                        <div class="col-xs-6" *ngFor="let itm of section.itemList">
-                            <div class="col-xs-6">
+                <div *ngSwitchCase="'reference'" flex="100" layout="column">
+                    <div layout="column" *ngFor="let itm of section.itemList">
+                        <div layout="row">
+                            <div flex="50">
                                 <h4> {{itm.name}},{{itm.company}}</h4>		
                             </div>
-                            <div class="col-xs-6">
+                            <div flex="50">
                                 <label>{{itm.email}}</label>		
                             </div>
-                            <div class="col-xs-12">                
-                                <p>{{itm.details}}</p>          
-                            </div>        
                         </div>
-                    </div>	
+                        <div flex="100">                
+                            <p>{{itm.details}}</p>          
+                        </div>        
+                    </div>                	
                 </div>
-                <div *ngSwitchCase="'volunteering'">
-                    <div class="col-xs-12" *ngFor="let itm of section.itemList">
-                        <div class="col-xs-3">
+                <div *ngSwitchCase="'volunteering'" flex="100" layout="column">
+                    <div layout="row" *ngFor="let itm of section.itemList">
+                        <div flex="25">
                             <h4>
                                 {{itm.name}},{{itm.country}}
                                 {{itm.city}}
                             </h4>		
                         </div>
-                        <div class="col-xs-6">
+                        <div layout="column" flex="50">
                             <label>{{itm.role}}</label>
                             <p>{{itm.details}}</p>
                         </div>
-                        <div class="col-xs-3">
+                        <div flex="25">
                             <label>{{itm.dateFrom}} - {{itm.dateTo}}</label>
                         </div>
                     </div>	
                 </div>
-                <div *ngSwitchCase="'hobby'">
-                    <div class="col-xs-12">
-                        <div class="col-xs-3" *ngFor="let itm of section.itemList">
-                            <span class="icon {{itm.icon}}"></span>
-                            <h4>{{itm.name}}</h4>
-                        </div>
-                    </div>
+                <div *ngSwitchCase="'hobby'" layout="row">                    
+                    <div layout="column" flex="25" *ngFor="let itm of section.itemList">
+                        <span class="icon {{itm.icon}}"></span>
+                        <h4>{{itm.name}}</h4>
+                    </div>                    
                 </div>
-                <div *ngSwitchCase="'other-text'" >
-                    <div class="col-xs-12">			
-                        <p>{{section.itemList}}></p>
-                    </div>
+                <div *ngSwitchCase="'other-text'" layout="column">                		
+                    <p>{{section.itemList}}></p>
                 </div>
         </div>       
     </div>

@@ -21,7 +21,7 @@ class SectionTemplateComponent {
 
   }
   sectionList: Section[]=[
-      {"$key": "", "order": 0, "title": "Language", "icon": "ion-earth", "type": "language", "itemList":[]},
+      {"$key": "", "title": "Language", "icon": "ion-earth", "type": "language", "itemList":[]},
       {"$key": "", "order": 0, "title": "Education", "icon": "ion-university", "type": "education", "itemList":[]},
       {"$key": "", "order": 0, "title": "Experience", "icon": "ion-briefcase", "type": "experience", "itemList": []},
       {"$key": "", "order": 0, "title": "Skills", "icon": "ion-android-star-half", "type": "skills", "itemList":[]},

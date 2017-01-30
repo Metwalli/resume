@@ -8,16 +8,16 @@
       </md-card-title>
       <md-divider></md-divider>      
         <div [ngSwitch]="section.type">             
-          <language *ngSwitchCase="'language'" [itemList]="section.itemList"></language>       
-          <education *ngSwitchCase="'education'" [itemList]="section.itemList"></education>
-          <experience *ngSwitchCase="'experience'" [itemList]="section.itemList"></experience>
-          <skills *ngSwitchCase="'skills'" [categoryList]="section.itemList"></skills>
-          <certificate *ngSwitchCase="'certificate'" [itemList]="section.itemList"></certificate>
-          <award *ngSwitchCase="'award'" [itemList]="section.itemList"></award>
-          <publication *ngSwitchCase="'publication'" [itemList]="section.itemList"></publication>
-          <reference *ngSwitchCase="'reference'" [itemList]="section.itemList"></reference>
-          <volunteering *ngSwitchCase="'volunteering'" [itemList]="section.itemList"></volunteering>
-          <hobbies *ngSwitchCase="'hobbies'" [itemList]="section.itemList"></hobbies>
+          <language *ngSwitchCase="'language'" [section]="section"></language>       
+          <education *ngSwitchCase="'education'" [section]="section"></education>
+          <experience *ngSwitchCase="'experience'" [section]="section"></experience>
+          <skills *ngSwitchCase="'skills'" [section]="section"></skills>
+          <certificate *ngSwitchCase="'certificate'" [section]="section" ></certificate>
+          <award *ngSwitchCase="'award'" [section]="section" ></award>
+          <publication *ngSwitchCase="'publication'" [section]="section" ></publication>
+          <reference *ngSwitchCase="'reference'" [section]="section" ></reference>
+          <volunteering *ngSwitchCase="'volunteering'" [section]="section" ></volunteering>
+          <hobbies *ngSwitchCase="'hobbies'" [section]="section"></hobbies>
           <other-text *ngSwitchCase="'other-text'" [other]="section.itemList"></other-text>
         </div>      
 </md-card>

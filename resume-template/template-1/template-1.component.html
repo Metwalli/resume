@@ -1,37 +1,49 @@
-<div layout="row">
 
+<div layout="column" layout-padding layout-margin layout-fill >
     <!--Personal Info-->
-        <div layout="row">
+        <div layout="row" flex="100">
             <div flex="30">                        
                 <img src="images/{{version.personalInfo.image}}" class="img-rounded">
             </div>
-            <div layout="row" flex="70">
-                <div flex>
+            <div layout="column" flex="70">
+                <div flex="100">
                     <h1>{{version.personalInfo.fullName}}</h1>
                 </div>                
-                <div layout="row" flex>
-                    <div layout="row" flex="50">
-                        <label flex="40">{{ 'Date Of Birth' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.dob}}</p>
-                        <label flex="40">{{ 'Nationality ' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.nationality}}</p>
-                        <label flex="40">{{ 'Marital Status' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.maritalStatus}}</p>
+                <div layout="row">
+                    <div layout="column" flex="50">
+                        <div layout="row">
+                            <label flex="40">{{ "Date of Birth" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.dob}}</p>
+                        </div>
+                        <div layout="row">
+                            <label flex="40">{{ "Nationality" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.nationality}}</p>
+                        </div>
+                        <div layout="row">
+                            <label flex="40">{{ "Marital Status" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.maritalStatus}}</p>
+                        </div>
                     </div>                
-                    <div layout="row" flex="50">
-                        <label flex="40">{{ 'Address' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.address}}</p>
-                        <label flex="40">{{ 'Mobile' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.mobile}}</p>
-                        <label flex="40">{{ 'Email' | translate }}</label>
-                        <p flex="60">{{version.personalInfo.email}}</p>                        
+                    <div layout="column" flex="50">
+                        <div layout="row">
+                            <label flex="40">{{ "Address" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.address}}</p>
+                        </div>
+                        <div layout="row">
+                            <label flex="40">{{ "Mobile" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.mobile}}</p>
+                        </div>
+                        <div layout="row">
+                            <label flex="40">{{ "Email" | translate }}</label>
+                            <p flex="60">{{version.personalInfo.email}}</p>    
+                        </div>                    
                     </div>
                 </div>
             </div>
         </div>
-        <div layout="col">
+        <div layout="column" flex>
             <div flex>
-                <h3><span class="icon {{version.personalInfo.icon}}"></span>{{ 'Profile' | translate }}</h3>
+                <h3><span class="icon {{version.personalInfo.icon}}"></span>{{ "Profile" | translate }}</h3>
             </div>
             <div flex>
                 <p>{{version.personalInfo.profile}}</p>
@@ -39,7 +51,7 @@
         </div>
     
     <!--Other Section-->
-        <div layout="col" *ngFor="let s of version.sectionList">                    
+        <div layout="column" *ngFor="let s of version.sectionList">                    
             <template-1-section [section]="s"></template-1-section>                        
         </div>                               
 </div>

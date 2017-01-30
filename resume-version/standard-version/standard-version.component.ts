@@ -24,7 +24,7 @@ export class StandardVersionComponent implements OnInit {
     
     sectionList: Section[] = [];    
     version: ResumeVersion = new ResumeVersion();
-    stepNo: number = 1;
+    stepNo: number = 3;
     personalInfoValidation: boolean = false;
     constructor(
         private router : Router,
