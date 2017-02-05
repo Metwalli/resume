@@ -55,7 +55,8 @@ export const AR_TRANSLATION = {
     "Duplicate": "تكرار",
     "Delete": "حذف",
     "Name": "اﻹسم",
-    "Login": "تسجيل الدخول"
+    "Login": "تسجيل الدخول",
+    "Sign Up":"تسجيل جديد"
     
 
 }

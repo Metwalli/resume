@@ -1,4 +1,11 @@
-<td-layout-card-over>     
+<td-layout-card-over>  
+  <md-card-actions>
+    <a md-button color="primary" *ngIf="stepNo < 5" (click)="next()">{{ 'Next' | translate }}</a>        
+    <a md-button color="primary"  *ngIf="stepNo > 1" (click)="previous()">{{ 'Previous' | translate }}</a>
+    <a md-button color="primary" *ngIf="stepNo == 5" (click)="preview()">{{ 'Preview' | translate }}</a>
+  </md-card-actions>  
+    <md-divider></md-divider>
+    
   <div [dir]="_translateSevice.getDir()" layout="row" layout-wrap hide-xs hide-sm>
     <div [ngSwitch]="stepNo" flex="100">
       <div *ngSwitchCase = "0">

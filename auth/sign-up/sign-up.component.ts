@@ -8,10 +8,10 @@ import { TranslateService } from '../../shared/translate/translate.service';
 @Component({
   selector: 'sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss','../dialog.css']
 })
 export class SignUpComponent implements OnInit {
-    title: string = 'Sing Up';
+    title: string = 'Sign Up';
     public signupForm;
     emailChanged: boolean = false;
     passwordChanged: boolean = false;
@@ -39,6 +39,7 @@ export class SignUpComponent implements OnInit {
     * If the form is invalid it will just log the form value, feel free to handle that as you like.
     */
     signup(){
+      debugger;
         this.submitAttempt = true;
 
         if (!this.signupForm.valid){
@@ -52,6 +53,11 @@ export class SignUpComponent implements OnInit {
               });      
         }
     }
+    
+    login(provider: string){
+    this.authService.login(provider);
+  }
+    
   ngOnInit() {  }
   
   cancel(){
