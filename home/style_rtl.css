@@ -1,0 +1,164 @@
+
+html, body
+{
+    font-family: body_font;
+    direction: rtl;
+    
+}
+
+.logo-font
+{
+    font-family: body_font;
+    color:#ef6c00;
+    font-weight: bold;
+}
+.android-sub-slogan
+{
+    color:#001869;
+}
+.android-navigation-container{
+    order:0;
+    width: auto;
+}
+
+.mdl-layout__header-row{
+    flex-direction: row-reverse;
+}
+.mdl-layout__header-row .mdl-navigation{
+    flex-direction: row-reverse;
+}
+.android-header .mdl-navigation__link {
+    font-family: body_font;
+    font-size:15px;
+    color:#ef6c00;
+
+}
+.android-title > a {
+    font-family:jozoor; 
+    text-decoration:none;
+    font-size:50px; 
+    color:#ef6c00;
+}
+
+.android-navigation .mdl-navigation__link:hover
+{
+    /*border-bottom: 4px solid rgba(255, 165, 0, 0.5);*/
+    border-bottom: 4px solid #001869;
+}
+.android-be-together-section
+{
+    /*border-top:solid #001869;*/
+}
+.android-be-together-section
+{
+    background: #f3f3f3;
+    background-image: url('assets/images/websitelogo.png');
+    background-size: 100%;
+    height: 45em;
+}
+.android-fab 
+{
+    color:white !important;
+    background:#001869 !important;
+}
+.mdl-typography--display-1-color-contrast
+{
+    font-family:body_font;
+    color:#ef6c00;
+    opacity:1;
+}
+::selection
+{
+    background:#001869;
+}
+.mdl-button--colored
+{
+    background-color:#001869 !important;
+    font-family:body_font;
+    font-size:14px;
+    font-weight: bold;
+}
+.android-screens
+{
+    display:flex;
+    margin-top:4%;
+    overflow-x:none;
+}
+.android-screen-image
+{
+    width:80% !important;
+    
+}
+.android-card-container .mdl-card__title-text
+{
+    font-family: body_font ;
+    color:#001869;
+}
+.mdl-typography--subhead, .mdl-typography--subhead-color-contrast
+{
+    font-family: body_font;
+}
+.android-drawer .mdl-layout-title
+{
+    
+    background: #ef6c00;
+}
+
+.android-drawer .mdl-layout-title >a
+{
+    font-family: jozoor;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top:100px;
+    font-size: 2em;
+    padding:10px;
+}
+
+
+@media (max-width:1024px)
+{
+    .android-be-together-section
+    {
+        height:30em;
+    }
+    .android-slogan
+    {
+        font-size: 2em;
+        top:70%;
+    }
+    .android-sub-slogan
+    {
+        top:70%;
+    }
+}
+@media (max-width:900px)
+{
+    .android-mobile-title
+    {
+        top:0px;
+    }
+}
+@media (max-width:425px)
+{
+    .android-be-together-section
+    {
+        height: 12em;
+    }
+    .android-slogan
+    {
+        font-size: 1em;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        top:65%;
+    }
+    .android-sub-slogan
+    {
+        font-size: .9em;
+        top:65%;
+    }
+    .mdl-button--colored
+    {
+        font-size: .9em;
+    }
+}
