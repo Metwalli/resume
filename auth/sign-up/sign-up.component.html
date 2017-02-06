@@ -1,25 +1,74 @@
 <div [dir]="translateService.getDir()">
-<md-card>
-  <md-card-title>
-    <h2>{{title | translate }}</h2>
-  </md-card-title>
-  <md-card-content>
-    <form [formGroup]="signupForm" (submit)="signup()" novalidate>        
-      <div layout="row" layout-align="space-between center">
-        <md-input #email placeholder="{{ 'Email' | translate }}" name='email'
-          formControlName="email" type="email" (change)="elementChanged(email)"          
-          [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)">
-        </md-input>
-        <md-input #password placeholder="{{'Password' | translate }}" name='password'
-          formControlName="password" type="password" (change)="elementChanged(password)"  
-          [class.invalid]="!signupForm.controls.password.valid &&(passwordChanged || submitAttempt)">
-        </md-input>            
+  <h3 class="mdl-dialog__title">{{title | translate }}</h3>
+  <div class="flex-show">
+
+    <div class="mdl-dialog__content">
+      <div class="content-flex">
+        <form [formGroup]="signupForm" (submit)="signup()" novalidate>
+          
+            <mdl-textfield floating-label #email label="{{ 'Email' | translate }}" name='email' formControlName="email" type="email" (change)="elementChanged(email)"
+              [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)">
+            </mdl-textfield>
+            <br>
+            <mdl-textfield floating-label #password label="{{'Password' | translate }}" name='password' formControlName="password" type="password"
+              (change)="elementChanged(password)" [class.invalid]="!signupForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+            </mdl-textfield>
+         
+            <!--<input type="submit" name="signup_submit" value="تسجيل" />-->
+            <button md-button type="submit">{{ 'Sign Up' | translate }}</button>
+            <!--<a md-button (click)="cancel()">{{ 'Cancel' | translate }}</a>-->
+          
+        </form>
+        <!--<mdl-textfield type="text" label="البريد الالكتروني" [(ngModel)]="text1" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="كلمة السر" [(ngModel)]="text2" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="اعادة كلمة السر" [(ngModel)]="text3" floating-label></mdl-textfield>-->
+
+        <!--<input type="submit" name="signup_submit" value="تسجيل" />-->
       </div>
-      <md-card-actions>
-        <button md-button type="submit">{{ 'Sign Up' | translate }}</button>
-        <a md-button (click)="cancel()">{{ 'Cancel' | translate }}</a>
-      </md-card-actions>
-    </form>
-  </md-card-content>
-</md-card>
+    </div>
+    <div class="seperator-flex">
+      <div class="or">أو</div>
+    </div>
+    <div class="mdl-dialog__content">
+      <div class="content-flex">
+        <button class="social-signin facebook" (click)="login('facebook')">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
+        <button class="social-signin twitter" (click)="login('twitter')">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
+        <button class="social-signin google" (click)="login('google')">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="mdl-dialog__content reg-with-us">
+    <p>
+      لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
+    </p>
+  </div>
 </div>
+
+
+
+
+<!--<div [dir]="translateService.getDir()">
+  <md-card>
+    <md-card-title>
+      <h2>{{title | translate }}</h2>
+    </md-card-title>
+    <md-card-content>
+      <form [formGroup]="signupForm" (submit)="signup()" novalidate>
+        <div layout="row" layout-align="space-between center">
+          <md-input #email placeholder="{{ 'Email' | translate }}" name='email' formControlName="email" type="email" (change)="elementChanged(email)"
+            [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)">
+          </md-input>
+          <md-input #password placeholder="{{'Password' | translate }}" name='password' formControlName="password" type="password"
+            (change)="elementChanged(password)" [class.invalid]="!signupForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+          </md-input>
+        </div>
+        <md-card-actions>
+          <button md-button type="submit">{{ 'Sign Up' | translate }}</button>
+          <a md-button (click)="cancel()">{{ 'Cancel' | translate }}</a>
+        </md-card-actions>
+      </form>
+    </md-card-content>
+  </md-card>
+</div>-->

@@ -11,7 +11,6 @@ import { ResumeVersion } from '../../shared/models/resume-version';
 import { PersonalInfoComponent } from '../personal-info/personal-info.component';
 import { EducationComponent } from '../section/education/education.component';
 import { ExperienceComponent } from '../section/experience/experience.component';
-import { SectionComponent } from '../section/section.component';
 
 @Component({
   selector: 'app-standard-version',

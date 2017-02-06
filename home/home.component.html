@@ -1,78 +1,328 @@
-<td-layout-card-over>
-  <div layout="row" layout-align="start center">
-    <md-icon class="md-icon-svg-lg" svgSrc="../../assets/icons/covalent.svg"></md-icon>
-    <div>
-      <md-card-title>Teradata Covalent UI Platform</md-card-title>
-      <md-card-subtitle>a UI platform built on Angular 2.0 + Material Design</md-card-subtitle>
-    </div>
-  </div>
-  <md-divider></md-divider>
-  <!--<md-nav-list hide-gt-sm>
-    <template let-item let-last="last" ngFor [ngForOf]="items">
-      <a md-list-item [routerLink]="[item.route]">
-        <md-icon md-list-avatar>{{item.icon}}</md-icon>
-        <h3 md-line> {{item.title}} </h3>
-        <p md-line> {{item.description}} </p>
-      </a>
-      <md-divider *ngIf="!last" md-inset></md-divider>
-    </template>
-  </md-nav-list>-->
-  <div layout="row" layout-wrap hide-xs hide-sm class="push-sm">
-    <template let-item let-last="last" ngFor [ngForOf]="items">
-      <div flex-md="50" flex-gt-md="25" layout="column">
-        <md-card href [routerLink]="[item.route]" class="md-card-colored" flex>
-          <md-toolbar class="bgc-{{item.color}} " layout="column" layout-align="center center" layout-padding>
-            <md-icon class="md-icon-font-xl tc-white">{{item.icon}}</md-icon>
-          </md-toolbar>
-          <md-card-content>
-            <div layout="column" layout-padding>
-              <div class="md-subhead">{{item.title}}</div>
-              <div class="md-caption tc-grey-600"> {{item.description}} </div>
-            </div>
-          </md-card-content>
-        </md-card>
-      </div>
-    </template>
-  </div>
-  <md-divider></md-divider>
-  <md-card-actions>
-    <a href="https://gitter.im/Teradata/covalent" target="_blank" md-button color="primary">Gitter Chat</a>
-    <a href="https://github.com/teradata/covalent/issues" target="_blank" md-button>Bug or Feature Request</a>
-  </md-card-actions>
-  <div after-card>
-    <h3 class="md-title">FAQs</h3>
-    <td-expansion-panel label="What is the Covalent?" sublabel="what is this thing?">
-      <div class="md-padding">
-        Covalent is a UI Platform that combines design language and a web framework, built on Angular 2.0 & Angular-Material (Design).
-        It will give you a quickstart to build a modern web application UI and ensure consistency across Teradata products.
-        Some of the most important features:
-        <ul>
-          <li>Angular-Material 2.0</li>
-          <li>Angular 2.0 Command-line interface (CLI) for builds, deploys, testing & more</li>
-          <li>Drastically simplified interface layouts (for dashboards, lists, etc)</li>
-          <li>Custom web components (stepper, file upload, expansion panels & more)</li>
-          <li>750+ Material Design icons</li>
-          <li>Style Guide with brand standards, color palettes & tips</li>
-          <li>Design Patterns for consistent, reusable web components such as cards, forms, etc</li>
-          <li>Testing Tools for unit tests and end-to-end tests</li>
-          <li>Quickstart app to get started right away!</li>
-        </ul>
-      </div>
-    </td-expansion-panel>
-    <td-expansion-panel label="Why Covalent?" sublabel="what's up with that name?">
-      <div class="md-padding">
-        We follow the Atomic Design principles, applying them to Angular-Material web components. In Atomic Design, several atoms
-        (such as buttons and inputs) form molecules (such as a search box). Our covalent bonds are these molecules we're
-        building on top of Angular-Material. Also, covalent bonds are liquid and conform to their container, just like our
-        responsive layouts!
-      </div>
-    </td-expansion-panel>
 
-    <md-divider></md-divider>
-    <div layout="row" layout-align="start center" layout-padding>
-      <span class="md-caption">Copyright &copy; 2016 Teradata. All rights reserved</span>
-      <span flex></span>
-      <md-icon class="md-icon-ux" svgSrc="../../assets/icons/teradata-ux.svg"></md-icon>
-    </div>
+  
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+           <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+             <a class="mdl-navigation__link" #editUserButton1 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل جديد</a>
+<a class="mdl-navigation__link" #editUserButton2 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل دخول</a>
+<a class="mdl-navigation__link" *ngIf="authService.user" routerLink="/resume-version">Dashboard</a>
+<a class="mdl-navigation__link" *ngIf="authService.user" (click)="authService.logout()">LogOut</a>
+<a class="mdl-navigation__link" href="">عنا</a>
+            </nav>
+          </div>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <span class="android-title mdl-layout-title">
+<!--            <img class="android-logo-image" src="images/android-logo.png">-->
+              <a href="#">سيرتي</a>
+          </span>
+
+         
+          <span class="android-mobile-title android-title mdl-layout-title">
+            <!--<img class="android-logo-image" src="images/android-logo.png">-->
+            <a href="#">سيرتي</a>
+          </span>
+
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title ">
+          <!--<img class="android-logo-image" src="images/android-logo-white.png">-->
+          <a href="#">سيرتي</a>
+        </span>
+        <nav class="mdl-navigation">
+          <!--<a class="mdl-navigation__link" #editUserButton1 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل جديد</a>-->
+          <a class="mdl-navigation__link" #editUserButton2 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل دخول</a>
+          <a class="mdl-navigation__link" *ngIf="authService.user" >Dashboard</a>
+          <a class="mdl-navigation__link" *ngIf="authService.user"(click)="authService.logout()">LogOut</a>       
+          <a class="mdl-navigation__link" href="">عنا</a>
+        </nav>
+      </div>
+
+      <div class="android-content mdl-layout__content">
+        <a name="top"></a>
+        <div class="android-be-together-section mdl-typography--text-center">
+          <div class="logo-font android-slogan">ابن سيرتك الذاتية معنا واصنع فرصتك</div>
+          <div class="logo-font android-sub-slogan">العملية سهلة... <button #editUserButton mdl-button mdl-button-type="raised" class="mdl-button--colored"
+        mdl-ripple (click)="editUserDialog.show()">ابدأ الان</button></div>
+          <!-- The code for modal dialog registration-->
+          <!--<dialog class="mdl-dialog" id="modal-example">
+              <h3 class="mdl-dialog__title">سجل باستخدام</h3>
+              <div class="flex-show">
+                  
+                <div class="mdl-dialog__content">
+                  <div class="content-flex">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input type="text" class="mdl-textfield__input" id="text-email" name="email" />
+                    <label class="mdl-textfield__label" for="text-email">البريد الالكتروني</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input type="text" class="mdl-textfield__input" id="text-password" name="password" />
+                    <label class="mdl-textfield__label" for="text-password">كلمة السر</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input type="text" class="mdl-textfield__input" id="text-password2" name="password2" />
+                    <label class="mdl-textfield__label" for="text-password2">اعادة كتابة كلمة السر</label>
+                    </div>
+                    <input type="submit" name="signup_submit" value="تسجيل" />
+                  </div>
+                </div>
+                <div class="seperator-flex">
+                  <div class="or">أو</div>
+                </div>
+                <div class="mdl-dialog__content">
+                  <div class="content-flex">
+                    <button class="social-signin facebook">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
+                    <button class="social-signin twitter">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
+                    <button class="social-signin google">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              <div class="mdl-dialog__content reg-with-us">
+                <p>
+                  لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
+                </p>
+              </div>
+              <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                  <button id="close_button" type="button" class="mdl-button">اغلاق</button>
+              </div>
+          </dialog>-->
+          <!--test dialog-->
+          
+        <mdl-dialog #editUserDialog
+            [mdl-dialog-config]="{
+              clickOutsideToClose: true,
+              isModal:false,
+              classes:'mdl-dialog1',
+              animate:true,
+              styles:{'border':'none','box-shadow':' 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2)','width': '70%',
+              'overflow-y': 'visible','overflow-x': 'visible','overflow': 'visible'} ,
+              openFrom: editUserButton,
+              enterTransitionDuration: 400,
+              leaveTransitionDuration: 400}"
+            >
+            <sign-up></sign-up>
+  <!--<h3 class="mdl-dialog__title">سجل باستخدام</h3>
+              <div class="flex-show">
+                  
+                <div class="mdl-dialog__content">
+                  <div class="content-flex">
+                  
+                    <mdl-textfield type="text" label="البريد الالكتروني" [(ngModel)]="text1" floating-label></mdl-textfield>
+                    <mdl-textfield type="text" label="كلمة السر" [(ngModel)]="text2" floating-label></mdl-textfield>
+                    <mdl-textfield type="text" label="اعادة كلمة السر" [(ngModel)]="text3" floating-label></mdl-textfield>
+                   
+                    <input type="submit" name="signup_submit" value="تسجيل" />
+                  </div>
+                </div>
+                <div class="seperator-flex">
+                  <div class="or">أو</div>
+                </div>
+                <div class="mdl-dialog__content">
+                  <div class="content-flex">
+                    <button class="social-signin facebook">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
+                    <button class="social-signin twitter">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
+                    <button class="social-signin google">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
+                    
+                  </div>
+                </div>
+                
+              </div>
+              <div class="mdl-dialog__content reg-with-us">
+                <p>
+                  لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
+                </p>
+              </div>-->
+
+  
+  <div class="mdl-dialog__actions">
+    <button mdl-button (click)="editUserDialog.close()" class="mdl-button" mdl-ripple>إلغاء</button>
   </div>
-</td-layout-card-over>
+</mdl-dialog>
+<!-- end test-->
+          <!-- End of the modal dialog-->
+          
+          
+          <div class="logo-font android-create-character">
+            
+          </div>
+
+          <a href="#screens">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+        </div>
+        <div class="android-screen-section mdl-typography--text-center">
+          <a name="screens"></a>
+          <div class="mdl-typography--display-1-color-contrast">قوالب احترافية مخصصة بحسب مجال العمل</div>
+          <div class="android-screens">
+            <div class="android-screen">
+              <a class="android-image-link" href="">
+                <img class="android-screen-image" src="../../assets/images/r1.webp">
+              </a>
+            </div>
+            <div class="android-screen">
+              <a class="android-image-link" href="">
+                <img class="android-screen-image" src="../../assets/images/r2.webp">
+              </a>
+            </div>
+            <div class="android-screen">
+              <a class="android-image-link" href="">
+                <img class="android-screen-image" src="../../assets/images/r3.webp">
+              </a>
+            </div>
+            <div class="android-screen">
+              <a class="android-image-link" href="">
+                <img class="android-screen-image" src="../../assets/images/r4.webp">
+              </a>
+            </div>
+            <div class="android-screen">
+              <a class="android-image-link" href="">
+                <img class="android-screen-image" src="../../assets/images/r5.webp">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="android-more-section">
+          <div class="android-section-title mdl-typography--display-1-color-contrast">تستطيع أيضا</div>
+          <div class="android-card-container mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="../../assets/images/more-from-1.png">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">اكثر من سيرة ذاتية بحسب التخصص</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">يمكنك بناءأكثر من سيرة ذاتية بحسب التخصص أو الوظيفة المقدم عليها</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Make the switch
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="../../assets/images/more-from-4.png">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">طباعة سيرتك الذاتية بأي شكل تريد</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">مع مجموعة القوالب المتنوعة يمكنك اختيار القالب المناسب للسيرة الذاتية الخاصة بك وارسالها بالبريد الالكتروني أو طباعتها</span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   androidify.com
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="../../assets/images/more-from-2.png">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">دعم اللغة العربية والانجليزية</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">يمكنك بناء السيرة الذاتية الخاصة بك
+                  باللغة العربية أو الانجليزية كما يمكن للسيرة الذاتية أن تكون باللغتين معا
+                </span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Download now
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+              <div class="mdl-card__media">
+                <img src="../../assets/images/more-from-3.png">
+              </div>
+              <div class="mdl-card__title">
+                 <h4 class="mdl-card__title-text">الحصول على المساعدة</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <span class="mdl-typography--font-light mdl-typography--subhead">من خلال المدونة الخاصة بسيرتي يمكنك الحصول
+                  على النصائح والتوجيهات اللازمة لبناء سيرتك الذاتية بشكل احترافي.
+                </span>
+              </div>
+              <div class="mdl-card__actions">
+                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                   Find apps
+                   <i class="material-icons">chevron_right</i>
+                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="android-footer mdl-mega-footer">
+          <div class="mdl-mega-footer--top-section">
+            <div class="mdl-mega-footer--left-section">
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+            </div>
+            <div class="mdl-mega-footer--right-section">
+              <a class="mdl-typography--font-light" href="#top">
+                Back to Top
+                <i class="material-icons">expand_less</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
+            <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
+          </div>
+
+          <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+              Versions
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+              <li class="mdl-menu__item">5.0 Lollipop</li>
+              <li class="mdl-menu__item">4.4 KitKat</li>
+              <li class="mdl-menu__item">4.3 Jelly Bean</li>
+              <li class="mdl-menu__item">Android History</li>
+            </ul>
+            <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+              For Developers
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
+              <li class="mdl-menu__item">App developer resources</li>
+              <li class="mdl-menu__item">Android Open Source Project</li>
+              <li class="mdl-menu__item">Android SDK</li>
+              <li class="mdl-menu__item">Android for Work</li>
+            </ul>
+            <a class="android-link mdl-typography--font-light" href="">Blog</a>
+            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+          </div>
+
+        </footer>
+      </div>
+      </div>
+      
+    <!-- The script that is used to implement full screen dialog-->
+    
+  

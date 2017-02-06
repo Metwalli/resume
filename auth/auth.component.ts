@@ -9,7 +9,7 @@ import { TranslateService } from '../shared/translate/translate.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css','./dialog.css']
 })
 export class AuthComponent implements OnInit {  
   title: string = "Login";

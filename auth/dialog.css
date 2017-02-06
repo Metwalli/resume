@@ -1,0 +1,234 @@
+
+.mdl-dialog1 {
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 70%;}
+  
+  .mdl-dialog__title {
+    padding: 24px 24px 0;
+    margin: 0;
+    font-size: 2.5rem;
+    font-family:body_font;
+    color:#ef6c00; }
+  .mdl-dialog__actions {    
+    padding: 8px 8px 8px 24px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .mdl-dialog__actions > * {
+      margin-right: 8px;
+      height: 36px; }
+      .mdl-dialog__actions > *:first-child {
+        margin-right: 0; }
+    .mdl-dialog__actions--full-width {
+      padding: 0 0 8px 0; }
+      .mdl-dialog__actions--full-width > * {
+        height: 48px;
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        padding-right: 16px;
+        margin-right: 0;
+        text-align: right; }
+  .mdl-dialog__content {
+    padding: 20px 24px 24px 24px;
+    color: rgba(0,0,0, 0.54);
+    
+     }
+     .reg-with-us
+     {
+         text-align: right;
+     }
+     .reg-with-us>p
+     {
+         font-family:body_font;
+     }
+     
+
+    
+    .flex-show
+    {
+        display:flex;
+        justify-content: space-around;
+         -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            
+    }
+    .content-flex
+    {
+        display:flex;
+        flex-direction: column;
+        
+    }
+
+
+
+
+
+
+input[type="text"],
+input[type="password"] {
+  
+  font-family: body_font,'Roboto', sans-serif;
+  
+}
+
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 100%;
+  height: 32px;
+  background: #001869;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: body_font,'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  /*position: absolute;*/
+  margin-top: 80px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #ef6c00;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
+  color:white;
+  font-family: body_font !important;
+}
+
+
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 300px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin.facebook {
+  background: #32508E;
+  font-family:body_font;
+  font-weight: bold;
+  font-size:18px;
+}
+
+button.social-signin.twitter {
+  background: #55ACEE;
+  font-family:body_font;
+  font-weight: bold;
+  font-size:18px;
+}
+
+button.social-signin.google {
+  background: #DD4B39;
+  font-family:body_font;
+  font-weight: bold;
+  font-size:18px;
+}
+#close_button
+{
+    font-family: body_font;
+    font-weight: bold;
+    color:#32508E;
+    font-size:.9em;
+    
+}
+
+
+@media (max-width: 1024px)
+{
+    button.social-signin
+    {
+        width:250px;
+    }
+     .mdl-textfield
+    {
+        width:200px;
+    }
+}
+
+
+@media (max-width:768px)
+{
+    .or{
+        margin-top:0px;
+        margin-right:130px;
+    }
+    .seperator-flex
+    {
+       width:300px;
+    }
+    button.social-signin
+    {
+        width: 300px;
+    }
+    .mdl-textfield
+    {
+        width:300px;
+    }
+}
+@media (max-width:375px)
+{
+    .mdl-textfield
+    {
+        width:200px;
+    }
+    .or{
+        margin-top:0px;
+        margin-right:90px;
+    }
+    .seperator-flex
+    {
+       width:200px;
+    }
+    button.social-signin
+    {
+        width: 200px;
+    }
+}
+
