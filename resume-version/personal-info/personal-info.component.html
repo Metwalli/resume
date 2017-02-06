@@ -33,9 +33,9 @@
             <md-input flex="30" placeholder="{{ 'Country' | translate }}" [(ngModel)]="personalInfo.country" id="country" name="country"></md-input>
           </div>
           <div layout="row" layout-align="space-between center">
-            <md-input flex="45" style="max-width: 48%;" placeholder="Mobile" [(ngModel)]="personalInfo.mobile" id="mobile" name="mobile"></md-input>
+            <md-input flex="45" style="max-width: 48%;" placeholder="{{ 'Mobile' | translate }}" [(ngModel)]="personalInfo.mobile" id="mobile" name="mobile"></md-input>
             <div class="input-field col" flex="45" >
-              <md-input placeholder="Email" [(ngModel)]="personalInfo.email" id="email" name="email" required></md-input>
+              <md-input placeholder="{{ 'Email' | translate }}" [(ngModel)]="personalInfo.email" id="email" name="email" required></md-input>
               <div *ngIf="formErrors.email" class="input-field-error" style="display: block;">{{ formErrors.email | translate }}</div>
             </div>   
             

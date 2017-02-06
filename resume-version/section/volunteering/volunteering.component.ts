@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Volunteering} from '../../../shared/models/volunteering';
+import { SectionComponent } from '../section.component';
 
 @Component({  
   selector: 'volunteering',
@@ -7,23 +8,14 @@ import {Volunteering} from '../../../shared/models/volunteering';
   
 })
 
-export class VolunteeringComponent{  
-  @Input() itemList: Volunteering[];
-  constructor(
-    ){
-
-  }  
-  ngOnInit(){
-    if(this.itemList.length == 0){
-      this.addNewItem();      
-    }    
-  }
-  
-  addNewItem(){
-    this.itemList.push(new Volunteering());    
-  }
-  
-  removeItem(index: number){
-    this.itemList.splice(index,1);    
+export class VolunteeringComponent extends SectionComponent{  
+  @Input() section: any;        
+  constructor(){ super(); }  
+  ngOnInit(){    
+    if(this.section.itemList.length == 0){
+      this.addItem();       
+    }else{
+      this.currentItemIndex = this.section.itemList.length - 1;
+    }
   }
 }

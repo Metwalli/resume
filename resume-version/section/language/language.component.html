@@ -1,9 +1,9 @@
 <md-card-content>
-	<div *ngFor="let itm of itemList">
+	<div *ngFor="let itm of section.itemList">
 		<language-item [item]="itm"></language-item>
 	</div>
 </md-card-content>
 <md-divider></md-divider>
 <md-card-actions layout="row">
-	<a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+	<a md-button (click)="addItem()">{{ 'Add Item' | translate }}</a>
 </md-card-actions>

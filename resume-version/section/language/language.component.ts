@@ -1,28 +1,20 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Language} from '../../../shared/models/language';
+import { SectionComponent } from '../section.component';
 
 @Component({
   selector: 'language',
   templateUrl: 'language.component.html',
 })
 
-export class LanguageComponent{  
-  constructor(
-    ){
-
-  }  
-  ngOnInit(){
-    if(this.itemList.length == 0){
-      this.addNewItem();      
-    }    
+export class LanguageComponent extends SectionComponent{  
+  @Input() section: any;        
+  constructor(){ super(); }  
+  ngOnInit(){    
+    if(this.section.itemList.length == 0){
+      this.addItem();       
+    }else{
+      this.currentItemIndex = this.section.itemList.length - 1;
+    }
   }
-  @Input() itemList: Language[];
-
-  addNewItem(){    
-    this.itemList.push(new Language());    
-  }
- 
-  removeItem(index: number){
-    this.itemList.splice(index,1);    
-  }  
 }

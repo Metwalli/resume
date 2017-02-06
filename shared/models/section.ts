@@ -9,7 +9,7 @@ class Section {
     this.itemList = items;    
   }
   $key: string;  
-  order: number;
+  order?: number;
 	title: string;
 	icon: string;
 	type: string;

@@ -1,7 +1,5 @@
 export class Skill{
-  constructor(){
-
-  }
+  constructor(){ }
   name: string;
   level: number;
 }

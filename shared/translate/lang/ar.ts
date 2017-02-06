@@ -9,6 +9,7 @@ export const AR_TRANSLATION = {
     "Gender": "الجنس",
     "Male": "ذكر",
     "Female": "أنثى",
+    "Marital Status": "الحالة اﻻجتماعية",
     "Nationality": "الجنسية",
     "Date of Birth": "تأريخ الميلاد",
     "Address": "العنوان",

@@ -13,6 +13,6 @@ export class ResumeVersion {
     templateID: string ="1";   
     personalInfo: PersonalInfo = new PersonalInfo();    
     sectionList: Section[] = [];     
-    // createDate: Date;
-    // updateDate: Date;
+    // createdDate: Date;
+    // updatedDate: Date;
 }

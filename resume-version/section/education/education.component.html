@@ -1,9 +1,7 @@
 <md-card-content>
-	<div *ngFor="let itm of itemList">	
-		<button md-icon-button type="button" class="close" (click)="removeItem(itemList.indexOf(itm))"><md-icon>close</md-icon></button>
-		<td-expansion-panel label="{{itm.name || 'Degree' | translate }}" (click)="itemSelected(itemList.indexOf(itm))" [expand]="currentItemIndex == itemList.indexOf(itm)">
-			
-			<button md-icon-button ></button>
+	<div *ngFor="let itm of section.itemList">
+		<button md-icon-button type="button" class="close" (click)="removeItem(section.itemList.indexOf(itm))"><md-icon>close</md-icon></button>
+		<td-expansion-panel label="{{itm.name || 'Degree' | translate }}" (click)="itemSelected(section.itemList.indexOf(itm))" [expand]="currentItemIndex == section.itemList.indexOf(itm)">						
 			<div class="md-padding">	
 				<education-item [item]="itm"></education-item>
 			</div>
@@ -12,5 +10,5 @@
 </md-card-content>
 <md-divider></md-divider>
 <md-card-actions layout="row">
-	<a md-button (click)="addNewItem()">{{ 'Add Item' | translate }}</a>
+	<a md-button (click)="addItem()">{{ 'Add Item' | translate }}</a>
 </md-card-actions>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Publication} from '../../../shared/models/publication';
+import { SectionComponent } from '../section.component';
 
 @Component({
   
@@ -7,24 +8,15 @@ import {Publication} from '../../../shared/models/publication';
   templateUrl: 'publication.component.html'
 })
 
-export class PublicationComponent{  
-  @Input() itemList: Publication[];
-  constructor(
-    ){
-
-  }  
-  ngOnInit(){
-    if(this.itemList.length == 0){
-      this.addNewItem();      
-    }    
-  }
-  
-  addNewItem(){
-    this.itemList.push(new Publication());    
-  }
-  
-  removeItem(index: number){
-    this.itemList.splice(index,1);    
+export class PublicationComponent extends SectionComponent{  
+  @Input() section: any;        
+  constructor(){ super(); }  
+  ngOnInit(){    
+    if(this.section.itemList.length == 0){
+      this.addItem();       
+    }else{
+      this.currentItemIndex = this.section.itemList.length - 1;
+    }
   }
 }
 
